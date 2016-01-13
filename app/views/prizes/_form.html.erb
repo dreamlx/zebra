@@ -1,0 +1,25 @@
+<div class="col-md-6">
+  <%= simple_form_for(@prize, html: { class: 'form-horizontal' }, 
+      wrapper: :horizontal_form,
+      wrapper_mappings: {
+      check_boxes: :horizontal_radio_and_checkboxes,
+      radio_buttons: :horizontal_radio_and_checkboxes,
+      file: :horizontal_file_input,
+      boolean: :horizontal_boolean}) do |f| %>
+    <%= f.input :city %>
+    <%= f.input :free_charge %>
+    <%= f.input :free_charge_ratio %>
+    <%= f.input :fifty_discount %>
+    <%= f.input :fifty_discount_ratio %>
+    <%= f.input :thirty_discount %>
+    <%= f.input :thirty_discount_ratio %>
+    <%= f.input :ten_discount %>
+    <%= f.input :ten_discount_ratio %>
+    <%= f.input :red_envelop %>
+    <%= f.input :red_envelop_ratio %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
+<div class="col-md-12">
+  <%= link_to t(:back), :back %>
+</div>
