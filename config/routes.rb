@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :admins
   resources :users do
-    get :weixin, on: :collection
+    get :userbinding, on: :collection
+    get :userscore, on: :collection
+  end
+  resources :serials do
+    get :scan, on: :collection
   end
   resources :records do
     post :weixin, on: :collection
