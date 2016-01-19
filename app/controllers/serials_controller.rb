@@ -17,6 +17,11 @@ class SerialsController < ApplicationController
     # else
     #   render json: {:return => "1", :desc => "序列号不存在"}, status: 200
     # end
+    if user.nil?
+      user = User.create(
+        openid: params[:openid],
+        score: 0)
+    end
     if serial && serial.open_id == params["openid"].to_s
       render json: {:return => "2", :desc => "你已经扫过"}, status: 200
     end
