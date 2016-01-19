@@ -10,7 +10,7 @@ class SerialsController < ApplicationController
     end
 
     if user && serial
-      serial.update_attribute(:phone, params["cell"], :open_id, user.open_id, :user_id, user.id)
+      serial.update_attribute(:phone, params["cell"])
       user.update_attribute(:score, (user.score + 20 if user.score) || 20)
       render json: {:return => "1", :desc => "绑定成功"}, status: 200
     else
