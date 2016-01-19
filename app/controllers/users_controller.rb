@@ -71,9 +71,9 @@ class UsersController < ApplicationController
     user = User.find_by(openid: params["openid"])
     if user
       if !user.cell.nil?
-        render json: {:hasmobile => "true", :score => user.score}, status: 200
+        render json: {:cell => user.cell, :score => user.score}, status: 200
       else
-        render json: {:hasmobile => "false", :score => user.score}, status: 200
+        render json: {:cell => "", :score => user.score}, status: 200
       end
     else
       render json: {}, status: 422
