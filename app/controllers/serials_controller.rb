@@ -5,6 +5,10 @@ class SerialsController < ApplicationController
     user = User.find_by(cell: params["cell"])
     serial = Serial.find_by(serial_no: params["serial_no"])
 
+    if user.nil?
+      user = User.create(cell: params[:cell], score: 0)
+    end
+
     if user && serial
       serial.update_attribute(:phone, params["cell"], :open_id, user.open_id, :user_id, user.id)
       user.update_attribute(:score, (user.score + 20 if user.score) || 20)
