@@ -23,15 +23,16 @@ class SerialsController < ApplicationController
     if serial && serial.open_id != params["openid"].to_s && serial.open_id
       render json: {:return => "3", :desc => "别人已经扫过"}, status: 200
     end
-    if user && serial && serial.open_id.nil?
-      serial.update_attribute(:open_id, params["openid"])
-      serial.update_attribute(:user_id, user.id)
-      user.update_attribute(:score, user.score+200)
+    if user && serial.nil? #&& serial.open_id.nil?
+      serial = Serial.create(user_id: user.id, open_id: params["openid"], serial_no: params["serial_no"])
+      # serial.update_attribute(:open_id, params["openid"])
+      # serial.update_attribute(:user_id, user.id)
+      user.update_attribute(:score, (user.score + 200 if user.score) || 200)
       render json: {:return => "1", :desc => "成功"}, status: 200
     end
-    if serial.nil?
-      render json: {}, status: 422
-    end
+    # if serial.nil?
+    #   render json: {}, status: 422
+    # end
   end
 
   private
