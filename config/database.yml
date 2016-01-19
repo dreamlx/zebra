@@ -13,9 +13,9 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: admin
-  password: wood123
-  host: hielf1984.ddns.net
+  # username: admin
+  # password: wood123
+  host: 127.0.0.1
   port: 3306
 
 development:
@@ -52,4 +52,4 @@ production:
   <<: *default
   database: zebra_production
   username: zebra
-  password: <%= ENV['ZEBRA_DATABASE_PASSWORD'] %>
+  password: zebra2016

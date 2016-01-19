@@ -56,7 +56,8 @@ class UsersController < ApplicationController
           # name: Rumoji.encode(info_json["nickname"]))
           openid: params[:openid],
           name: params[:name],
-          cell: params[:cell])
+          cell: params[:cell],
+          score: 0)
         render json: {:status => "1"}, status: 200
       else
         render json: {:status => "0"}, status: 422

@@ -17,19 +17,20 @@ class SerialsController < ApplicationController
     # else
     #   render json: {:return => "1", :desc => "序列号不存在"}, status: 200
     # end
-    if serial && serial.open_id == 123.to_s
-      render json: {:return => "3", :desc => "你已经扫过"}, status: 200
+    if serial && serial.open_id == params["openid"].to_s
+      render json: {:return => "2", :desc => "你已经扫过"}, status: 200
     end
-    if serial && serial.open_id != 123.to_s && serial.open_id
-      render json: {:return => "3", :desc => "你已经扫过"}, status: 200
+    if serial && serial.open_id != params["openid"].to_s && serial.open_id
+      render json: {:return => "3", :desc => "别人已经扫过"}, status: 200
     end
-    if serial && serial.open_id.nil?
+    if user && serial && serial.open_id.nil?
       serial.update_attribute(:open_id, params["openid"])
       serial.update_attribute(:user_id, user.id)
-      render json: {:return => "2", :desc => "成功"}, status: 200
+      user.update_attribute(:score, user.score+200)
+      render json: {:return => "1", :desc => "成功"}, status: 200
     end
     if serial.nil?
-      render json: {:return => "1", :desc => "序列号不存在"}, status: 200
+      render json: {}, status: 422
     end
   end
 
