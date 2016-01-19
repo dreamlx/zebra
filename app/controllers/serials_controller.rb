@@ -15,9 +15,12 @@ class SerialsController < ApplicationController
   end
 
   def build_serial
-    serial = Serial.create(serial_no: params["serial_no"], phone: params["cell"])
+    serial = Serial.find_by(serial_no: params["serial_no"])
+    if serial.nil?
+      serial = Serial.create(serial_no: params["serial_no"], phone: params["cell"])
+    end
     if serial
-      render json: {:return => "1", :desc => "绑定成功", :cell => serial.phone, :datetime => created_at}, status: 200
+      render json: {:return => "1", :desc => "绑定成功", :cell => serial.phone, :datetime => serial.created_at}, status: 200
     else
       render json: {:return => "0", :desc => "未绑定"}, status: 422
     end
