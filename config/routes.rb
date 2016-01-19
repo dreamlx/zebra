@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   resources :serials do
     get :scan, on: :collection
+    get :build_serial, on: :collection
   end
   resources :records do
     post :weixin, on: :collection

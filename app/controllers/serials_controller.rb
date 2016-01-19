@@ -1,7 +1,29 @@
 class SerialsController < ApplicationController
-  skip_before_action :logged_in_admin, only: [:scan]
+  skip_before_action :logged_in_admin, only: [:scan, :build_serial]
 
   def scan
+    user = User.find_by(cell: params["cell"])
+    serial = Serial.find_by(serial_no: params["serial_no"])
+
+    if user && serial
+      serial.update_attribute(:phone, params["cell"], :open_id, user.open_id, :user_id, user.id)
+      user.update_attribute(:score, (user.score + 20 if user.score) || 20)
+      render json: {:return => "1", :desc => "绑定成功"}, status: 200
+    else
+      render json: {:return => "0", :desc => "绑定失败"}, status: 422
+    end
+  end
+
+  def build_serial
+    serial = Serial.create(serial_no: params["serial_no"], phone: params["cell"])
+    if serial
+      render json: {:return => "1", :desc => "绑定成功", :cell => serial.phone, :datetime => created_at}, status: 200
+    else
+      render json: {:return => "0", :desc => "未绑定"}, status: 422
+    end
+  end
+
+  def scan_old
     user = User.find_by(openid: params["openid"])
     serial = Serial.find_by(serial_no: params["serial_no"])
     # if serial
@@ -32,7 +54,7 @@ class SerialsController < ApplicationController
       serial = Serial.create(user_id: user.id, open_id: params["openid"], serial_no: params["serial_no"])
       # serial.update_attribute(:open_id, params["openid"])
       # serial.update_attribute(:user_id, user.id)
-      user.update_attribute(:score, (user.score + 200 if user.score) || 200)
+      user.update_attribute(:score, (user.score + 20 if user.score) || 20)
       render json: {:return => "1", :desc => "成功"}, status: 200
     end
     # if serial.nil?
