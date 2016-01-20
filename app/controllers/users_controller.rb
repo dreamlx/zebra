@@ -86,7 +86,7 @@ class UsersController < ApplicationController
     json =  JSON.parse(res.body.gsub(/[\u0000-\u001f]+/, ''))
 
     if json
-      render json, status: 200
+      render json: json, status: 200
     end
   end
 
@@ -96,7 +96,7 @@ class UsersController < ApplicationController
     info_json =  JSON.parse(info_res.body.gsub(/[\u0000-\u001f]+/, ''))
 
     if info_json
-      render info_json, status: 200
+      render json: info_json, status: 200
     end
   end
 
@@ -106,7 +106,7 @@ class UsersController < ApplicationController
     json =  JSON.parse(res.body.gsub(/[\u0000-\u001f]+/, ''))
 
     if json
-      render json, status: 200
+      render json: json, status: 200
     end
   end
 
