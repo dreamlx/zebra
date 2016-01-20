@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :logged_in_admin, only: [:userbinding, :userscore]
+  skip_before_action :logged_in_admin, only: [:userbinding, :userscore, :sns_oauth2, :sns_userinfo, :ticket]
   def index
     @users = User.all
   end
@@ -77,6 +77,36 @@ class UsersController < ApplicationController
       end
     else
       render json: {}, status: 422
+    end
+  end
+
+  def sns_oauth2
+    uri = URI("https://api.weixin.qq.com/sns/oauth2/access_token?appid=#{ENV["WECHAT_APP_ID"]}&secret=#{ENV["WECHAT_APP_SECRET"]}&code=#{params[:code]}&grant_type=authorization_code")
+    res = Net::HTTP.get_response(uri)
+    json =  JSON.parse(res.body.gsub(/[\u0000-\u001f]+/, ''))
+
+    if json
+      render json, status: 200
+    end
+  end
+
+  def sns_userinfo
+    info_uri = URI("https://api.weixin.qq.com/sns/userinfo?access_token=#{params[:access_token]}&openid=#{params[:openid]}&lang=zh_CN")
+    info_res = Net::HTTP.get_response(info_uri)
+    info_json =  JSON.parse(info_res.body.gsub(/[\u0000-\u001f]+/, ''))
+
+    if info_json
+      render info_json, status: 200
+    end
+  end
+
+  def ticket
+    uri = URI("http://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=#{params[:access_token]}")
+    res = Net::HTTP.get_response(uri)
+    json =  JSON.parse(res.body.gsub(/[\u0000-\u001f]+/, ''))
+
+    if json
+      render json, status: 200
     end
   end
 
