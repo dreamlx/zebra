@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       #   render json: {:status => "1"}, status: 200
       # else
         render json: {:status => "0"}, status: 422
-      end
+      # end
     end
     # redirect_to "/activity.html?openid=#{user.openid}&state=#{user.state}"
   end
