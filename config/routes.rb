@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get :sns_oauth2, on: :collection
     get :sns_userinfo, on: :collection
     get :ticket, on: :collection
+    get :token, on: :collection
   end
   resources :serials do
     get :scan, on: :collection

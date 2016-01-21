@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :logged_in_admin, only: [:userbinding, :userscore, :sns_oauth2, :sns_userinfo, :ticket]
+  skip_before_action :logged_in_admin, only: [:userbinding, :userscore, :sns_oauth2, :sns_userinfo, :ticket, :token]
   def index
     @users = User.all
   end
@@ -103,6 +103,16 @@ class UsersController < ApplicationController
 
   def ticket
     uri = URI("http://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=#{params[:access_token]}")
+    res = Net::HTTP.get_response(uri)
+    json =  JSON.parse(res.body.gsub(/[\u0000-\u001f]+/, ''))
+
+    if json
+      render json: json, status: 200
+    end
+  end
+
+  def token
+    uri = URI("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=#{ENV["WECHAT_APP_ID"]}&secret=#{ENV["WECHAT_APP_SECRET"]}")
     res = Net::HTTP.get_response(uri)
     json =  JSON.parse(res.body.gsub(/[\u0000-\u001f]+/, ''))
 
