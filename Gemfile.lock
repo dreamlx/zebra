@@ -109,6 +109,8 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.3)
     multi_json (1.11.2)
+    multi_logger (0.1.0)
+      railties
     mysql2 (0.3.20)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -232,6 +234,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   kaminari-i18n
+  multi_logger
   mysql2 (= 0.3.20)
   rack-cors
   rails (= 4.2.4)
@@ -248,4 +251,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

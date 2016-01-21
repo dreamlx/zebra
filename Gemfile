@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 gem 'ransack'
 gem 'figaro'
+gem 'multi_logger'
 
 group :development, :test do
   gem 'byebug'

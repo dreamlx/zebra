@@ -82,6 +82,7 @@ class UsersController < ApplicationController
 
   def sns_oauth2
     uri = URI("https://api.weixin.qq.com/sns/oauth2/access_token?appid=#{ENV["WECHAT_APP_ID"]}&secret=#{ENV["WECHAT_APP_SECRET"]}&code=#{params[:code]}&grant_type=authorization_code")
+    Rails.logger.task.info "new uri, #{uri}"
     res = Net::HTTP.get_response(uri)
     json =  JSON.parse(res.body.gsub(/[\u0000-\u001f]+/, ''))
 
