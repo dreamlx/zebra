@@ -46,21 +46,21 @@ class UsersController < ApplicationController
     # info_json =  JSON.parse(info_res.body.gsub(/[\u0000-\u001f]+/, ''))
 
 
-    user = User.find_by(openid: params["openid"])
+    user = User.find_by(openid: params["cell"])
     if user
-      user.update_attribute(:cell, params[:cell])
+      user.update_attribute(:cell, params[:cell], :openid, params["openid"])
       render json: {:status => "1"}, status: 200
     else
-      if !params["openid"].nil?
-        user = User.create(
-          # openid: info_json["openid"],
-          # name: Rumoji.encode(info_json["nickname"]))
-          openid: params[:openid],
-          name: params[:name],
-          cell: params[:cell],
-          score: 0)
-        render json: {:status => "1"}, status: 200
-      else
+      # if !params["openid"].nil?
+      #   user = User.create(
+      #     # openid: info_json["openid"],
+      #     # name: Rumoji.encode(info_json["nickname"]))
+      #     openid: params[:openid],
+      #     name: params[:name],
+      #     cell: params[:cell],
+      #     score: 0)
+      #   render json: {:status => "1"}, status: 200
+      # else
         render json: {:status => "0"}, status: 422
       end
     end
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   end
 
   def userscore
-    user = User.find_by(openid: params["openid"])
+    user = User.find_by(openid: params["cell"])
     if user
       if !user.cell.nil?
         render json: {:cell => user.cell, :score => user.score}, status: 200
