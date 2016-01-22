@@ -69,7 +69,7 @@ class UsersController < ApplicationController
   end
 
   def userscore
-    user = User.find_by(openid: params["cell"])
+    user = User.find_by(cell: params["cell"])
     if user
       if !user.cell.nil?
         render json: {:cell => user.cell, :score => user.score}, status: 200
