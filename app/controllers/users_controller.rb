@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     # info_json =  JSON.parse(info_res.body.gsub(/[\u0000-\u001f]+/, ''))
 
 
-    user = User.find_by(openid: params["cell"])
+    user = User.find_by(cell: params["cell"])
     if user
       user.update_attribute(:cell, params[:cell], :openid, params["openid"])
       render json: {:status => "1"}, status: 200
