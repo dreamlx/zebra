@@ -48,7 +48,8 @@ class UsersController < ApplicationController
 
     user = User.find_by(cell: params["cell"])
     if user
-      user.update_attribute(:cell, params[:cell], :openid, params["openid"])
+      user.update_attribute(:cell, params["cell"])
+      user.update_attribute(:openid, params["openid"])
       render json: {:status => "1"}, status: 200
     else
       # if !params["openid"].nil?
