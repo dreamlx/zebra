@@ -22,14 +22,32 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # def update
+  #   @user = User.find(params[:id])
+  #   @user.name = Rumoji.encode(params[:user][:name])
+  #   if @user.update(user_params)
+  #     redirect_to users_url
+  #   else
+  #     render 'edit'
+  #   end
+  # end
+
   def update
-    @user = User.find(params[:id])
-    @user.name = Rumoji.encode(params[:user][:name])
+    return api_error(status: 422) if params[:user].nil?
+    @user = User.find_by(id: params[:id])
+
+    return api_error(status: 422) if @user.nil?
+
+    @user.image = parse_image_data(params[:user][:image]) if params[:user][:image]
+
     if @user.update(user_params)
-      redirect_to users_url
-    else
+      @user.submit
       render 'edit'
+    else
+      return api_error(status: 422)
     end
+  ensure
+    clean_tempfile
   end
 
   def destroy
@@ -81,6 +99,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def finduser
+    user = User.find_by(cell: params["cell"])
+    if user
+      render json: {:cell => user.name, :score => user.image}, status: 200
+    else
+      render json: {}, status: 422
+    end
+  end
+
+  def modifyuser
+    user = User.find_by(cell: params["cell"])
+    if user
+      render json: {:cell => user.name, :score => user.image}, status: 200
+    else
+      render json: {}, status: 422
+    end
+  end
+
   def sns_oauth2
     uri = URI("https://api.weixin.qq.com/sns/oauth2/access_token?appid=#{ENV["WECHAT_APP_ID"]}&secret=#{ENV["WECHAT_APP_SECRET"]}&code=#{params[:code]}&grant_type=authorization_code")
     Rails.logger.task.info "new uri, #{uri}"
@@ -124,6 +160,6 @@ class UsersController < ApplicationController
 
   private
    def user_params
-    params.require(:user).permit(:openid, :cell, :name, :score)
+    params.require(:user).permit(:openid, :cell, :name, :score, :image)
    end
 end

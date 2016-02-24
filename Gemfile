@@ -20,6 +20,10 @@ gem 'kaminari-i18n'
 gem 'ransack'
 gem 'figaro'
 gem 'multi_logger'
+gem 'carrierwave'
+gem 'qiniu-rs'
+gem 'carrierwave-qiniu'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug'

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     get :sns_userinfo, on: :collection
     get :ticket, on: :collection
     get :token, on: :collection
+    get :finduser, on: :collection
+    get :modifyuser, on: :collection
   end
   resources :serials do
     get :scan, on: :collection

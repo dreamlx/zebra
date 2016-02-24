@@ -20,14 +20,20 @@ class SerialsController < ApplicationController
 
   def build_serial
     serial = Serial.find_by(serial_no: params["serial_no"])
-    if serial.nil?
-      serial = Serial.create(serial_no: params["serial_no"], phone: params["cell"])
-    end
     if serial
-      render json: {:return => "1", :desc => "绑定成功", :cell => serial.phone, :datetime => serial.created_at}, status: 200
+      render json: {:return => "1", :desc => "序列号已存在", :cell => serial.phone, :datetime => serial.created_at}, status: 200
     else
-      render json: {:return => "0", :desc => "未绑定"}, status: 422
+      render json: {:return => "0", :desc => "序列号不存在", :cell => nil, :datetime => nil}, status: 422
     end
+    #
+    # if serial.nil?
+    #   serial = Serial.create(serial_no: params["serial_no"], phone: params["cell"])
+    # end
+    # if serial
+    #   render json: {:return => "1", :desc => "绑定成功", :cell => serial.phone, :datetime => serial.created_at}, status: 200
+    # else
+    #   render json: {:return => "0", :desc => "未绑定"}, status: 422
+    # end
   end
 
   def scan_old
