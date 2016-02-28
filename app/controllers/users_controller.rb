@@ -22,32 +22,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # def update
-  #   @user = User.find(params[:id])
-  #   @user.name = Rumoji.encode(params[:user][:name])
-  #   if @user.update(user_params)
-  #     redirect_to users_url
-  #   else
-  #     render 'edit'
-  #   end
-  # end
-
   def update
-    return api_error(status: 422) if params[:user].nil?
-    @user = User.find_by(id: params[:id])
-
-    return api_error(status: 422) if @user.nil?
-
-    @user.image = parse_image_data(params[:user][:image]) if params[:user][:image]
-
+    @user = User.find(params[:id])
+    @user.name = Rumoji.encode(params[:user][:name])
     if @user.update(user_params)
-      @user.submit
-      render 'edit'
+      redirect_to users_url
     else
-      return api_error(status: 422)
+      render 'edit'
     end
-  ensure
-    clean_tempfile
   end
 
   def destroy
