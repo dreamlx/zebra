@@ -84,7 +84,7 @@ class UsersController < ApplicationController
   def finduser
     user = User.find_by(cell: params["cell"])
     if user
-      render json: {:cell => user.name, :score => user.image}, status: 200
+      render json: {:name => user.name, :cell => user.cell, :score => user.score :image => user.image}, status: 200
     else
       render json: {}, status: 422
     end
