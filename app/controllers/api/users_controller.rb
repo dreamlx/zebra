@@ -29,7 +29,7 @@ class Api::UsersController < Api::BaseController
     @user.image = parse_image_data(params[:user][:image]) if params[:user][:image]
 
     if @user.update(user_params)
-      # @user.save
+      @user.submit
       render 'show'
     else
       return api_error(status: 422)
