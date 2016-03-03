@@ -22,11 +22,11 @@ class Api::UsersController < Api::BaseController
   end
 
   def update
-    return api_error(status: 422) if params[:user].nil?
+    # return api_error(status: 422) if params[:user].nil?
     @user = User.find_by(id: params[:id])
     return api_error(status: 422) if @user.nil?
 
-    @user.image = parse_image_data(params[:user][:image]) if params[:user][:image]
+    @user.image = parse_image_data(params[:image]) if params[:image]
 
     if @user.update(user_params)
       @user.submit
@@ -41,6 +41,6 @@ class Api::UsersController < Api::BaseController
 
   private
     def user_params
-      params.require(:user).permit(:openid, :cell, :name, :score, :image)
+      params.permit(:openid, :cell, :name, :score, :image)
     end
 end

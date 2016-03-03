@@ -1,20 +1,20 @@
 module ApplicationHelper
   def log_in(admin)
     session[:admin_id] = admin.id
-    @current_admin = admin
+    @current_user = admin
   end
 
-  def current_admin
-    @current_admin || Admin.find_by(id: session[:admin_id])
+  def current_user
+    @current_user || Admin.find_by(id: session[:admin_id])
   end
 
   def logged_in?
-    !current_admin.nil?
+    !current_user.nil?
   end
 
   def logout
     session.delete(:admin_id)
-    @current_admin = nil
+    @current_user = nil
   end
 
   def parse_image_data(base64_image)

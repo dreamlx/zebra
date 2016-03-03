@@ -1,4 +1,7 @@
 class AdminsController < ApplicationController
+  load_and_authorize_resource
+  skip_load_and_authorize_resource :only => :new
+
   def index
     @admins = Admin.all
   end
@@ -33,7 +36,7 @@ class AdminsController < ApplicationController
     Admin.find(params[:id]).destroy
     redirect_to admins_url
   end
-  
+
   private
    def admin_params
     params.require(:admin).permit(

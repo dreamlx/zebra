@@ -50,7 +50,7 @@ RSpec.describe "users" do
       valid_header = {
         authorization: ActionController::HttpAuthentication::Token.encode_credentials("#{user.openid}")
       }
-      patch "/api/users/#{user.id}", {user: {name: "new_name", cell: "18018559241"}}, valid_header
+      patch "/api/users/#{user.id}", {name: "new_name", cell: "18018559241"}, valid_header
       expect(response).to     be_success
       expect(response).to     have_http_status(200)
       json = JSON.parse(response.body)["user"]
@@ -63,27 +63,27 @@ RSpec.describe "users" do
 
     it "failed to update name and cell without authentication" do
       user = create(:user)
-      patch "/api/users/#{user.id}", {user: {name: "new_name", cell: "18018559241"}}
+      patch "/api/users/#{user.id}", {name: "new_name", cell: "18018559241"}
       expect(response).not_to     be_success
       expect(response).to     have_http_status(401)
     end
 
-    it "failed to update name and cell without parameter of user" do
-      user = create(:user)
-      valid_header = {
-        authorization: ActionController::HttpAuthentication::Token.encode_credentials("#{user.openid}")
-      }
-      patch "/api/users/#{user.id}", {name: "new_name", cell: "18018559241"}, valid_header
-      expect(response).not_to be_success
-      expect(response).to     have_http_status(422)
-    end
+    # it "failed to update name and cell without parameter of user" do
+    #   user = create(:user)
+    #   valid_header = {
+    #     authorization: ActionController::HttpAuthentication::Token.encode_credentials("#{user.openid}")
+    #   }
+    #   patch "/api/users/#{user.id}", {name: "new_name", cell: "18018559241"}, valid_header
+    #   expect(response).not_to be_success
+    #   expect(response).to     have_http_status(422)
+    # end
 
     it "failed to update name and cell with invalid id" do
       user = create(:user)
       valid_header = {
         authorization: ActionController::HttpAuthentication::Token.encode_credentials("#{user.openid}")
       }
-      patch "/api/users/invalid", {user: {name: "new_name", cell: "18018559241"}}, valid_header
+      patch "/api/users/invalid", {name: "new_name", cell: "18018559241"}, valid_header
       expect(response).not_to be_success
       expect(response).to     have_http_status(422)
     end
@@ -98,7 +98,7 @@ RSpec.describe "users" do
         score: 30,
         image: 'data:image/png;base64,' + Base64.strict_encode64(File.open(File.join(Rails.root, 'spec/fixtures/head.png')).read)
       }
-      patch "/api/users/#{user.id}", {user: new_attributes}, valid_header
+      patch "/api/users/#{user.id}", new_attributes, valid_header
       expect(response).to     be_success
       expect(response).to     have_http_status(200)
       json = JSON.parse(response.body)["user"]
