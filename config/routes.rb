@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root 'welcome#index'
-  resources :admins
+  resources :admins do
+    get :confirm, on: :member
+    get :deny, on: :member
+  end
   resources :users do
     get :userbinding, on: :collection
     get :userscore, on: :collection
@@ -18,6 +21,9 @@ Rails.application.routes.draw do
   resources :records do
     post :weixin, on: :collection
     get :receive, on: :member
+  end
+  resources :products do
+    resources :extentions
   end
   resources :prizes
   get     'login'   => 'sessions#new'

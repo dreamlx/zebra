@@ -28,6 +28,7 @@ gem 'mini_magick'
 gem 'state_machines-activerecord'
 gem 'cancancan'
 gem "wice_grid", '3.6.0.pre4'
+gem "best_in_place"
 
 group :development, :test do
   gem 'byebug'

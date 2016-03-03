@@ -2,9 +2,9 @@
   <div class="col-md-6 col-md-offset-3">
     <div class="panel panel-primary">
       <div class="panel-heading">
-         <h4 class="panel-title text-center">用户</h4>
+         <h4 class="panel-title text-center"><%= Product.model_name.human %></h4>
       </div>
-      <%= simple_form_for(@admin, html: { class: 'form-horizontal' },
+      <%= simple_form_for(@product, html: { class: 'form-horizontal' },
           wrapper: :horizontal_form,
           wrapper_mappings: {
           check_boxes: :horizontal_radio_and_checkboxes,
@@ -12,14 +12,8 @@
           file: :horizontal_file_input,
           boolean: :horizontal_boolean}) do |f| %>
       <div class="panel-body">
-          <%= f.input :name %>
-          <%= f.input :address %>
-          <%= f.input :cell %>
-          <%= f.input :contact %>
-          <%= f.input :email %>
-          <%= f.input :website %>
-          <%= f.input :password %>
-          <%= f.input :password_confirmation %>
+        <%= f.input :product_name %>
+        <%= f.input :product_image %>
       </div>
       <div class="panel-footer text-center">
         <!-- <p class="text-center"> -->

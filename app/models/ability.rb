@@ -3,7 +3,7 @@ class Ability
 
   def initialize(user)
     alias_action :create, :read, :update, :destroy, :to => :crud
-    
+
     if user.state == "通过"
       can :manage, :all
     elsif user.state == "否决"

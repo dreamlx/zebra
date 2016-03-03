@@ -16,7 +16,7 @@
       <% if logged_in? %>
         <ul class="nav navbar-nav">
           <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to User.model_name.human, users_path %></li>
-          <li class="<%= 'active' if params[:controller] == 'prizes' %>"><%= link_to Prize.model_name.human, prizes_path %></li>
+          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
           <li class="<%= 'active' if params[:controller] == 'records' %>"><%= link_to Record.model_name.human, records_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
