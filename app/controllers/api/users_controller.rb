@@ -1,5 +1,5 @@
 class Api::UsersController < Api::BaseController
-  before_action :authenticate_user!, only: [:all_investors, :update, :show]
+  # before_action :authenticate_user!, only: [:all_investors, :update, :show]
   def create
     return api_error(status: 422) if params[:user].nil?
 
