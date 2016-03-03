@@ -72,9 +72,9 @@ class UsersController < ApplicationController
     user = User.find_by(cell: params["cell"])
     if user
       if !user.cell.nil?
-        render json: {:cell => user.cell, :score => user.score}, status: 200
+        render json: {:id => user.id, :cell => user.cell, :score => user.score}, status: 200
       else
-        render json: {:cell => "", :score => user.score}, status: 200
+        render json: {:id => user.id, :cell => "", :score => user.score}, status: 200
       end
     else
       render json: {}, status: 422
@@ -84,7 +84,7 @@ class UsersController < ApplicationController
   def finduser
     user = User.find_by(cell: params["cell"])
     if user
-      render json: {:name => user.name, :cell => user.cell, :score => user.score, :image => user.image}, status: 200
+      render json: {:id => user.id, :name => user.name, :cell => user.cell, :score => user.score, :image => user.image}, status: 200
     else
       render json: {}, status: 422
     end
@@ -93,7 +93,7 @@ class UsersController < ApplicationController
   def modifyuser
     user = User.find_by(cell: params["cell"])
     if user
-      render json: {:cell => user.name, :score => user.image}, status: 200
+      render json: {:id => user.id, :cell => user.name, :score => user.image}, status: 200
     else
       render json: {}, status: 422
     end
