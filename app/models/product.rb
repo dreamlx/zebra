@@ -1,7 +1,10 @@
 class Product < ActiveRecord::Base
   belongs_to :admin
   has_many :extentions, dependent: :destroy
+  has_many :serials, dependent: :destroy
   mount_uploader :product_image, ImageUploader
+
+  # accepts_nested_attributes_for :serials
 
   validates :product_name, presence: true
 

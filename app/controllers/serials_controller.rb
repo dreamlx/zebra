@@ -1,6 +1,41 @@
 class SerialsController < ApplicationController
   skip_before_action :logged_in_admin, only: [:scan, :build_serial]
 
+  def index
+    @serials = Serial.all
+  end
+
+  def new
+    @serial = Serial.new
+  end
+
+  def create
+    @serial = Serial.new(serial_params)
+    if @serial.save
+      redirect_to serials_url
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    @serial = Serial.find(params[:id])
+  end
+
+  def update
+    @serial = Serial.find(params[:id])
+    if @serial.update(serial_params)
+      redirect_to serials_url
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    Serial.find(params[:id]).destroy
+    redirect_to serials_url
+  end
+
   def scan
     user = User.find_by(cell: params["cell"])
     serial = Serial.find_by(serial_no: params["serial_no"])
@@ -77,6 +112,6 @@ class SerialsController < ApplicationController
 
   private
    def serial_params
-    params.require(:serial).permit(:open_id, :phone, :user_id, :serial_no)
+    params.require(:serial).permit(:open_id, :phone, :user_id, :serial_no, :product_id)
    end
 end

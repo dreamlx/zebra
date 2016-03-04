@@ -23,7 +23,12 @@ Rails.application.routes.draw do
     get :receive, on: :member
   end
   resources :products do
+    patch 'create_multiple', :on => :member
     resources :extentions
+    resources :serials do
+      get :scan, on: :collection
+      get :build_serial, on: :collection
+    end
   end
   resources :prizes
   get     'login'   => 'sessions#new'

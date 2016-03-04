@@ -9,7 +9,7 @@ class Ability
     elsif user.state == "否决"
       cannot :read, :all
     else
-      can :read, :all
+      can :manage, :all
     end
 
     # Define abilities for the passed in user here. For example:

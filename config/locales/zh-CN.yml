@@ -21,7 +21,7 @@ zh-CN:
         updated_at: 更新
       user:
         openid: OpenId
-        name: 名字
+        name: 昵称
         cell: 手机
         created_at: 创建
         updated_at: 更新
@@ -74,6 +74,7 @@ zh-CN:
   reset_password: 重设密码
   invalid_name_or_password: 无效的用户名或密码
   please_log_in: 请登录
+  no_authorize: 您没有权限进行此操作
   zebra: 斑马
   receive: 领取
   search: 搜索

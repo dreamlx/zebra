@@ -19,6 +19,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def create_multiple
+    @product = Product.find(params[:id])
+    params[:product][:how_many].to_i.times do |serial|
+      Serial.create(product_id: params[:product][:product_id], serial_no: Digest::MD5.hexdigest(current_user.id.to_s).upcase + '-' + Time.now.to_f.to_s)
+    end
+    redirect_to @product
+  end
+
   def edit
     @product = Product.find(params[:id])
   end
@@ -40,6 +48,6 @@ class ProductsController < ApplicationController
   private
    def product_params
     params.require(:product).permit(
-      :product_name, :product_image, :admin_id)
+      :product_name, :product_image, :admin_id, :how_many)
    end
 end

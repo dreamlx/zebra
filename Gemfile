@@ -29,6 +29,7 @@ gem 'state_machines-activerecord'
 gem 'cancancan'
 gem "wice_grid", '3.6.0.pre4'
 gem "best_in_place"
+gem 'rqrcode'
 
 group :development, :test do
   gem 'byebug'
@@ -42,6 +43,9 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano-passenger', '0.0.2'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :test do

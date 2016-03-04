@@ -1,22 +1,29 @@
-<div class="col-md-10">
-  <h3><%= t(:user_list) %></h3>
+<div class="row-fluid">
+  <div class="col-md-12">
+    <div class="panel panel-info">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h4 class="panel-title text-center"><%= t(:user_list) %></h4>
+      </div>
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th><%= User.human_attribute_name(:openid) %></th>
+            <th><%= User.human_attribute_name(:name) %></th>
+            <th><%= User.human_attribute_name(:cell) %></th>
+            <th colspan="2"><%= t(:operations) %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= render @users %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<div class="col-md-2">
-  <%= link_to t("new_user"), new_user_path, class: "btn btn-danger" %>
-</div>
-<div class="col-md-12">
-  <table class="table">
-    <thead>
-      <tr>
-        <th><%= User.human_attribute_name(:id) %></th>
-        <th><%= User.human_attribute_name(:openid) %></th>
-        <th><%= User.human_attribute_name(:name) %></th>
-        <th><%= User.human_attribute_name(:cell) %></th>
-        <th colspan="2"><%= t(:operations) %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= render @users %>
-    </tbody>
-  </table>
+<div class="row-fluid">
+  <div class="col-md-4">
+    <%= link_to t(:new_user), new_user_path, class: "btn btn-danger" %>
+  </div>
 </div>
