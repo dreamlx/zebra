@@ -76,7 +76,7 @@ module ApplicationHelper
           module_px_size: 6,
           file: nil # path to write
           )
-    png.save("public/img/qrcode/#{serial_id}.png")
+    png.save("public/img/#{serial_id}.png")
     # IO.write("public/img/qrcode/#{serial_id}.png", png.to_s)
   end
 end
