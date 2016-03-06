@@ -65,7 +65,7 @@ module ApplicationHelper
   end
 
   def qr_code(serial_id)
-    qrcode = RQRCode::QRCode.new("#{serial_url(serial_id)}", :size => 4, :level => :h)
+    qrcode = RQRCode::QRCode.new("#{serial_url(serial_id)}")
     png = qrcode.as_png(
           resize_gte_to: false,
           resize_exactly_to: false,
