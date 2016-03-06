@@ -39,5 +39,5 @@ bower.json
 
 config/database.yml
 public/uploads/user/image
-public/img/qrcode
+public/img/qrcode/*.png
 public/uploads/tmp
