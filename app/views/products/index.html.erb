@@ -19,7 +19,7 @@
             <tr>
               <td><%= product.id %></td>
               <td><%= product.product_name %></td>
-              <td><%= product.product_image %></td>
+              <td><%= image_tag product.product_image.thumb %></td>
               <td><%= link_to t(:show), product_path(product) if can? :read, Product %></td>
               <td><%= link_to t(:edit), edit_product_path(product) if can? :edit, Product %></td>
               <td><%= link_to t(:destroy), product, method: :delete, data: {confirm: t(:are_you_sure)} if can? :delete, Product %></td>
