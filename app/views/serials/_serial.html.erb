@@ -1,9 +1,7 @@
 <tr>
   <td><%= serial.phone %></td>
   <td><%= User.find(serial.user_id).name if serial.user_id  %></td>
-  <td>
-    <%= qr_code(serial.id) %>
-  </td>
+  <td><%= link_to "下载", "/img/qrcode/#{serial.id}.png", :target => "_blank" %></td>
   <td><%= serial.serial_no %></td>
   <td><%= serial.state %></td>
 </tr>

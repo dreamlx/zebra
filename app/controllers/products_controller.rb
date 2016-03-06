@@ -22,7 +22,8 @@ class ProductsController < ApplicationController
   def create_multiple
     @product = Product.find(params[:id])
     params[:product][:how_many].to_i.times do |serial|
-      Serial.create(product_id: params[:product][:product_id], serial_no: Digest::MD5.hexdigest(current_user.id.to_s).upcase + '-' + Time.now.to_f.to_s)
+      @serial = Serial.create(product_id: params[:product][:product_id], serial_no: Digest::MD5.hexdigest(current_user.id.to_s).upcase + '-' + Time.now.to_f.to_s)
+      qr_code(@serial.id)
     end
     redirect_to @product
   end

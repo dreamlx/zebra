@@ -39,3 +39,4 @@ bower.json
 
 config/database.yml
 public/uploads/user/image
+public/img/qrcode

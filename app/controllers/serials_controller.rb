@@ -112,6 +112,6 @@ class SerialsController < ApplicationController
 
   private
    def serial_params
-    params.require(:serial).permit(:open_id, :phone, :user_id, :serial_no, :product_id)
+    params.require(:serial).permit(:open_id, :phone, :user_id, :serial_no, :product_id, :state)
    end
 end
