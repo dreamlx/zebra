@@ -1,7 +1,7 @@
 <tr>
   <td><%= serial.phone %></td>
   <td><%= User.find(serial.user_id).name if serial.user_id  %></td>
-  <td><%= link_to "下载", "/img/#{serial.id}.png", :target => "_blank" %></td>
+  <td><%= link_to "下载", "/img/#{serial.id}.png", :download => serial.product.product_name + serial.id.to_s %></td>
   <td><%= serial.serial_no %></td>
   <td><%= serial.state %></td>
 </tr>

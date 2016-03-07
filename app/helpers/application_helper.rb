@@ -65,7 +65,9 @@ module ApplicationHelper
   end
 
   def qr_code(serial_id)
-    qrcode = RQRCode::QRCode.new("#{serial_url(serial_id)}")
+    # qrcode = RQRCode::QRCode.new("#{serial_url(serial_id)}")
+    @serial = Serial.find(serial_id)
+    qrcode = RQRCode::QRCode.new("http://zebra.easybird.cn/page1.html?id=#{@serial.serial_no}")
     png = qrcode.as_png(
           resize_gte_to: false,
           resize_exactly_to: false,
