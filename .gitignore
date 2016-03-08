@@ -36,9 +36,7 @@ bower.json
 
 # Ignore application configuration
 /config/application.yml
-
+public/uploads/user/image/*
 config/database.yml
-public/uploads/user/image
 public/img/*.png
-public/img/qrcode/*.png
-public/uploads/tmp
+public/uploads/tmp/*
