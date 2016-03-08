@@ -74,7 +74,7 @@ module ApplicationHelper
           fill: 'white',
           color: 'black',
           size: 120,
-          border_modules: 4,
+          border_modules: 1,
           module_px_size: 6,
           file: nil # path to write
           )

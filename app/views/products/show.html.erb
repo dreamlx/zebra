@@ -52,22 +52,38 @@
       </div>
       <div class="col-md-9"></div>
     </div>
+    </br>
     <div class="row">
-      <div class="col-md-12">
+      <!-- <div class="col-md-12">
         </br>
         <div class="panel panel-success">
           <div class="panel-heading">
             <h4 class="panel-title text-center">产品二维码</h4>
           </div>
-          <!-- <div class="panel-body"> -->
+
             <table class="table table-striped">
               <tbody>
-                <%= render @product.serials %>
+                render @product.serials
               </tbody>
             </table>
-          <!-- </div> -->
+        </div>
+      </div> -->
+      <%= form_for '#', method:  :get do %>
+      <div class="col-md-12">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h4 class="panel-title text-center">产品二维码</h4>
+          </div>
+          <div class="">
+            <%= render :partial => 'serials/serials_grid' %>
+            <%= render_grid(@serials_grid) %>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-danger" type="submit">下载二维码</button>
         </div>
       </div>
+      <% end %>
     </div>
   <!-- </div> -->
 <!-- </div> -->

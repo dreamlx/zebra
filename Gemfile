@@ -30,6 +30,8 @@ gem 'cancancan'
 gem "wice_grid", '3.6.0.pre4'
 gem "best_in_place"
 gem 'rqrcode'
+gem 'rubyzip'
+gem 'zip-zip'
 
 group :development, :test do
   gem 'byebug'

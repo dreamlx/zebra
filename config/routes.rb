@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
   resources :products do
     patch 'create_multiple', :on => :member
+    patch 'download', :on => :member
     resources :extentions
     resources :serials do
       get :scan, on: :collection
