@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :logged_in_admin, only: [:finduser, :userbinding, :userscore, :sns_oauth2, :sns_userinfo, :ticket, :token]
+  skip_before_action :logged_in_admin, only: [:finduser, :userbinding, :userscore, :sns_oauth2, :sns_userinfo, :ticket, :token, :userdetail]
   def index
     @users = User.all
   end
@@ -46,11 +46,11 @@ class UsersController < ApplicationController
     # info_json =  JSON.parse(info_res.body.gsub(/[\u0000-\u001f]+/, ''))
 
 
-    user = User.find_by(cell: params["cell"])
+    user = User.find_by(id: params["userid"])
     if user
-      user.update_attribute(:cell, params["cell"])
-      user.update_attribute(:openid, params["openid"])
-      render json: {:status => "1"}, status: 200
+      user.update_attribute(:cell, params["cell"]) if params["cell"]
+      user.update_attribute(:openid, params["openid"]) if params["openid"]
+      render json: {:status => "1", :desc => "修改成功"}, status: 200
     else
       # if !params["openid"].nil?
       #   user = User.create(
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
       #     score: 0)
       #   render json: {:status => "1"}, status: 200
       # else
-        render json: {:status => "0"}, status: 422
+        render json: {:status => "0", :desc => "修改失败"}, status: 422
       # end
     end
     # redirect_to "/activity.html?openid=#{user.openid}&state=#{user.state}"
@@ -81,14 +81,32 @@ class UsersController < ApplicationController
     end
   end
 
-  def finduser
-    user = User.find_by(cell: params["cell"])
+  def userdetail
+    user = User.find_by(id: params["userid"])
     if user
-      render json: {:id => user.id, :name => user.name, :cell => user.cell, :score => user.score, :image => user.image}, status: 200
+      render json: {:id => user.id, :openid => user.openid, :name => user.name, :cell => user.cell, :score => user.score, :image => user.image}, status: 200
     else
       render json: {}, status: 422
     end
   end
+
+  def finduser
+    user = User.find_by(openid: params["openid"])
+    if user
+      render json: {:userid => user.id}, status: 200
+    else
+      render json: {}, status: 422
+    end
+  end
+
+  # def finduser
+  #   user = User.find_by(cell: params["cell"])
+  #   if user
+  #     render json: {:id => user.id, :name => user.name, :cell => user.cell, :score => user.score, :image => user.image}, status: 200
+  #   else
+  #     render json: {}, status: 422
+  #   end
+  # end
 
   def modifyuser
     user = User.find_by(cell: params["cell"])

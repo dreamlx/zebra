@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get :ticket, on: :collection
     get :token, on: :collection
     get :finduser, on: :collection
+    get :userdetail, on: :collection
     get :modifyuser, on: :collection
   end
   resources :serials do

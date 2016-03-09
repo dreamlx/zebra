@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
                     name:'serials')
 
     if params[:serials] && params[:serials][:selected]
-      folder = "public/img"
+      folder = "public/img/qrcode"
       input_filenames = []
       @serials = Serial.where(id: params[:serials][:selected])
       @serials.each do |file|

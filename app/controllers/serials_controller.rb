@@ -47,18 +47,18 @@ class SerialsController < ApplicationController
     if user && serial
       serial.update_attribute(:phone, params["cell"])
       user.update_attribute(:score, (user.score + 20 if user.score) || 20)
-      render json: {:return => "1", :desc => "绑定成功"}, status: 200
+      render json: {:return => "1", :userid => user.id :desc => "绑定成功"}, status: 200
     else
-      render json: {:return => "0", :desc => "绑定失败"}, status: 422
+      render json: {:return => "0", :userid => nil, :desc => "绑定失败"}, status: 422
     end
   end
 
   def build_serial
     serial = Serial.find_by(serial_no: params["serial_no"])
     if serial
-      render json: {:return => "1", :desc => "序列号已存在", :cell => serial.phone, :datetime => serial.created_at}, status: 200
+      render json: {:return => "1", :desc => "序列号已存在", :product => serial.product.product_name, :cell => serial.phone, :datetime => serial.created_at}, status: 200
     else
-      render json: {:return => "0", :desc => "序列号不存在", :cell => nil, :datetime => nil}, status: 422
+      render json: {:return => "0", :desc => "序列号不存在", :product => nil, :cell => nil, :datetime => nil}, status: 422
     end
     #
     # if serial.nil?
