@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     resources :serials do
       get :scan, on: :collection
       get :build_serial, on: :collection
+      get :scan, on: :member
+      get :unable, on: :member
     end
   end
   resources :prizes

@@ -26,7 +26,7 @@
           <%= simple_form_for([@product, @product.extentions.build]) do |f| %>
           <!-- <div class="panel-body"> -->
             <%= f.input :extention_name %>
-            <%= f.input :extention_value %>
+            <%= f.input :extention_value, as: :text, input_html: {rows: 6} %>
           <!-- </div> -->
           <div class="text-center">
             <%= f.button :submit, class: "btn btn-danger" %>
