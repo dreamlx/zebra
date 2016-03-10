@@ -7,7 +7,7 @@
   g.action_column html_check_box: false
 
   g.column :name => '扫码用户', :attribute => 'user_id', filter: false do |serial|
-    Rumoji.decode(User.find(serial.user_id).name) if serial.user_id
+    Rumoji.decode(User.find(serial.user_id).name) if User.find(serial.user_id).name
   end
 
   g.column :name => '扫码手机', :attribute => 'phone', filter: false
