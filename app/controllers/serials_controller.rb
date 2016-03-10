@@ -44,7 +44,7 @@ class SerialsController < ApplicationController
       user = User.create(cell: params[:cell], score: 0)
     end
 
-    if user && serial.state == "已绑定"
+    if user && serial.state == "未绑定"
       serial.update_attribute(:phone, params["cell"])
       serial.update_attribute(:user_id, user.id)
       user.update_attribute(:score, (user.score + 20 if user.score) || 20)
