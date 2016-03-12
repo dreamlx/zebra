@@ -11,6 +11,7 @@
             <th>#</th>
             <th><%= Admin.human_attribute_name("name") %></th>
             <th><%= Admin.human_attribute_name("email") %></th>
+            <th><%= Admin.human_attribute_name("state") %></th>
             <th colspan="4"><%= t(:operations) %></th>
           </tr>
         </thead>
@@ -20,6 +21,7 @@
               <td><%= admin.id %></td>
               <td><%= admin.name %></td>
               <td><%= admin.email %></td>
+              <td><%= admin.state %></td>
               <td><%= link_to t(:confirm), confirm_admin_path(admin) if can? :confirm, Admin  %></td>
               <td><%= link_to t(:deny), deny_admin_path(admin) if can? :deny, Admin %></td>
               <td><%= link_to t(:reset_password), edit_admin_path(admin) if can? :edit, Admin %></td>

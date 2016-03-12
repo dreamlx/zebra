@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get :deny, on: :member
   end
   resources :users do
+    resources :scanlogs
     get :userbinding, on: :collection
     get :userscore, on: :collection
     get :sns_oauth2, on: :collection
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
       get :unable, on: :member
     end
   end
+  resources :thirdparties
   resources :prizes
   get     'login'   => 'sessions#new'
   post    'login'   => 'sessions#create'

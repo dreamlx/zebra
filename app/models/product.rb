@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
   # accepts_nested_attributes_for :serials
 
   validates :product_name, presence: true
+  validates :score, presence: true
 
   state_machine :state, :initial => :'正常' do
     event :deny do

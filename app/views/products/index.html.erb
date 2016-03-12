@@ -10,6 +10,7 @@
           <tr>
             <th>#</th>
             <th><%= Product.human_attribute_name("product_name") %></th>
+            <th><%= Product.human_attribute_name("score") %></th>
             <th><%= Product.human_attribute_name("product_image") %></th>
             <th colspan="3"><%= t(:operations) %></th>
           </tr>
@@ -19,6 +20,7 @@
             <tr>
               <td><%= product.id %></td>
               <td><%= product.product_name %></td>
+              <td><%= product.score %></td>
               <td><%= image_tag product.product_image.thumb %></td>
               <td><%= link_to t(:show), product_path(product) if can? :read, Product %></td>
               <td><%= link_to t(:edit), edit_product_path(product) if can? :edit, Product %></td>

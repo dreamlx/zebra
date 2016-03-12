@@ -6,8 +6,11 @@ class Admin < ActiveRecord::Base
   # validates :name, presence: true, uniqueness: true, on: :update
   validates :address, presence: true
   validates :cell, presence: true, uniqueness: true, on: :create
+  validates :cell, numericality: true
+  validates_length_of :cell, :is => 11
   # validates :cell, presence: true, uniqueness: true, on: :update
   validates :email, presence: true, uniqueness: true, on: :create
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   # validates :email, presence: true, uniqueness: true, on: :update
   validates :password, presence: true, length: {minimum: 6}, on: :create
   # validates :password, presence: true, length: {minimum: 6}, on: :update

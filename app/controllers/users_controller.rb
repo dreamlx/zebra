@@ -160,6 +160,6 @@ class UsersController < ApplicationController
 
   private
    def user_params
-    params.require(:user).permit(:openid, :cell, :name, :score, :image)
+    params.require(:user).permit(:openid, :cell, :name, :score, :image, :birthday, :level)
    end
 end

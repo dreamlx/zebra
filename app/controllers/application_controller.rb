@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :logged_in_admin
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to main_app.root_url, flash[:danger] = t(:no_authorize)
+    redirect_to main_app.root_url
     # render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => false
   end
 
