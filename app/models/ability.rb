@@ -22,7 +22,7 @@ class Ability
       can [:show, :update],                     Admin,    id: admin.id
       can [:read, :create, :update, :destroy],  User
       can :create,                              Product
-      can [:show, :update, :destroy],           Product,  admin_id: admin.id
+      can [:read, :update, :destroy],           Product,  admin_id: admin.id
     else
       can :create,                              Admin
       can [:show, :update],                     Admin,    id: admin.id
