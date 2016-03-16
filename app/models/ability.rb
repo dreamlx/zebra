@@ -19,7 +19,7 @@ class Ability
       can :manage, :all
     else
       can :create,                    Admin
-      can [:read, :update, :destroy], Admin, :id => admin.id
+      can [:show, :update, :destroy], Admin, :id => admin.id
       can :create,                    Product
       can [:read, :update, :destroy], Product, :admin_id => admin.id
     end
