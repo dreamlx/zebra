@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :logged_in_admin, only: [:finduser, :userbinding, :userscore, :sns_oauth2, :sns_userinfo, :ticket, :token, :userdetail]
+  load_and_authorize_resource
   def index
     @users = User.all
   end

@@ -17,13 +17,17 @@ class Ability
     admin ||= Admin.new # guest user (not logged in)
     if admin.role == "admin"
       can :manage, :all
+    elsif admin.state == "通过"
+      can :create,                              Admin
+      can [:show, :update],                     Admin,    id: admin.id
+      can [:read, :create, :update, :destroy],  User
+      can :create,                              Product
+      can [:show, :update, :destroy],           Product,  admin_id: admin.id
     else
-      can :create,                    Admin
-      can [:show, :update, :destroy], Admin, :id => admin.id
-      can :create,                    Product
-      can [:read, :update, :destroy], Product, :admin_id => admin.id
+      can :create,                              Admin
+      can [:show, :update],                     Admin,    id: admin.id
     end
-    #
+    
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions
