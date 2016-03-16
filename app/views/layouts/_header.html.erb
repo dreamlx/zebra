@@ -14,15 +14,31 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <% if logged_in? %>
-        <ul class="nav navbar-nav">
-          <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to User.model_name.human, users_path %></li>
-          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="<%= 'active' if (params[:controller] == 'admins' && params[:action] == 'edit') %>"><%= link_to t(:edit), edit_admin_path(current_user) %></li>
-          <li class="<%= 'active' if (params[:controller] == 'admins'  && params[:action] == 'index') %>"><%= link_to Admin.model_name.human, admins_path %></li>
-          <li><%= link_to t('logout'), logout_path, method: :delete %></li>
-        </ul>
+        <% if current_user.role == "admin" %>
+          <ul class="nav navbar-nav">
+            <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to User.model_name.human, users_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="<%= 'active' if (params[:controller] == 'admins' && params[:action] == 'edit') %>"><%= link_to t(:edit_password), edit_admin_path(current_user) %></li>
+            <li class="<%= 'active' if (params[:controller] == 'admins'  && params[:action] == 'index') %>"><%= link_to Admin.model_name.human, admins_path %></li>
+            <li><%= link_to t('logout'), logout_path, method: :delete %></li>
+          </ul>
+        <% elsif current_user.state == "通过" %>
+          <ul class="nav navbar-nav">
+            <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to User.model_name.human, users_path %></li>
+            <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to Product.model_name.human, products_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="<%= 'active' if (params[:controller] == 'admins' && params[:action] == 'edit') %>"><%= link_to t(:edit_password), edit_admin_path(current_user) %></li>
+            <li><%= link_to t('logout'), logout_path, method: :delete %></li>
+          </ul>
+        <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="<%= 'active' if (params[:controller] == 'admins' && params[:action] == 'edit') %>"><%= link_to t(:edit_password), edit_admin_path(current_user) %></li>
+            <li><%= link_to t('logout'), logout_path, method: :delete %></li>
+          </ul>
+        <% end %>
       <% else %>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to t('login'), login_path %></li>
