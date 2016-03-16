@@ -1,25 +1,28 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(admin)
     alias_action :create, :read, :update, :destroy, :to => :crud
 
-    if user.state == "通过"
-      can :manage, :all
-    elsif user.state == "否决"
-      cannot :read, :all
-    else
-      can :read, :all
-    end
+    # if user.state == "通过"
+    #   can :manage, :all
+    # elsif user.state == "否决"
+    #   cannot :read, :all
+    # else
+    #   can :read, :all
+    # end
 
     # Define abilities for the passed in user here. For example:
-    #
-    #   user ||= User.new # guest user (not logged in)
-    #   if user.admin?
-    #     can :manage, :all
-    #   else
-    #     can :read, :all
-    #   end
+    
+    admin ||= Admin.new # guest user (not logged in)
+    if admin.role == "admin"
+      can :manage, :all
+    else
+      can :create,                    Admin
+      can [:read, :update, :destroy], Admin, :id => admin.id
+      can :create,                    Product
+      can [:read, :update, :destroy], Product, :admin_id => admin.id
+    end
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.

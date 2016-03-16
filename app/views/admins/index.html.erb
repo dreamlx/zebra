@@ -24,7 +24,7 @@
               <td><%= admin.state %></td>
               <td><%= link_to t(:confirm), confirm_admin_path(admin) if can? :confirm, Admin  %></td>
               <td><%= link_to t(:deny), deny_admin_path(admin) if can? :deny, Admin %></td>
-              <td><%= link_to t(:reset_password), edit_admin_path(admin) if can? :edit, Admin %></td>
+              <td><%= link_to t(:reset_password), edit_admin_path(admin) if can? :update, admin %></td>
               <td><%= link_to t(:destroy), admin, method: :delete, data: {confirm: t(:are_you_sure)} if can? :delete, Admin %></td>
             </tr>
           <% end %>
