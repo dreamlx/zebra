@@ -13,21 +13,22 @@ class Ability
     # end
 
     # Define abilities for the passed in user here. For example:
-    
+
     admin ||= Admin.new # guest user (not logged in)
     if admin.role == "admin"
       can :manage, :all
     elsif admin.state == "通过"
-      can :create,                              Admin
-      can [:show, :update],                     Admin,    id: admin.id
-      can [:read, :create, :update, :destroy],  User
-      can :create,                              Product
-      can [:read, :update, :destroy],           Product,  admin_id: admin.id
+      can :create,                                               Admin
+      can [:show, :update],                                      Admin,    id: admin.id
+      can [:read, :create, :update, :destroy],                   User
+      can :create,                                               Product
+      can [:read, :update, :destroy,:create_multiple],           Product,  admin_id: admin.id
+      can [:read, :create, :update, :destroy],                   Serial
     else
-      can :create,                              Admin
-      can [:show, :update],                     Admin,    id: admin.id
+      can :create,                                               Admin
+      can [:show, :update],                                      Admin,    id: admin.id
     end
-    
+
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

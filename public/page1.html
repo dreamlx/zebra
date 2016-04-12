@@ -12,33 +12,38 @@
 </body>
 
 <script id="template" type="text/template">
+ <div class="page1">
+        <div class="aboveBlock">
+            <div id="divHeader">
+              <img class="bg" src="img/page1/1.png" />
+              <div class="divChange">
+                  <img id="divLogo" class="divlogo" src="img/page1/logo.png" />
 
-<div class="page1">
-    <div class="aboveBlock">
-        <img class="bg" src="img/page1/page-1_header.png">
-        <div class="msg">
-            <p>亲爱的用户:</p>
-            <p id="msg">经过专业扫码验证，您购买的此款<%=type%>是品牌正品。请放心使用。</p>
+                  <div class="divTitle">
+                  <p >亲爱的用户:</p>
+                  <p id="msg" class="msg">经过专业扫码验证，您购买的此款<%=type%>是品牌正品。请放心使用。</p>
+                  <img id="stamp" class="stamp"
+                      </div>
+              </div>
+            </div>
         </div>
-        <img class="stamp" src="img/page1/page-1_tuzhang.png">
-    </div>
 
-    <div class="midBlock">
-        <div class="input">
-        <input class="phone" type="text" placeholder="请输入您的手机号码">
+
+
+
+
+        <div class="midBlock">
+            <div class="input">
+                <input class="phone" type="text" placeholder="请输入您的手机号码">
+            </div>
+            <div class="enter">会员服务</div>
         </div>
-        <div class="enter">会员服务</div>
-    </div>
 
-    <div class="underBlock">
-        <img class="bg" src="img/page1/page1_bg.png">
-        <img class="word" src="img/page1/page1_word.png">
-        <img class="head" src="img/page1/page1_head.png">
-        <img class="addr" src="img/page1/page1_addr.png">
-        <img class="logo" src="img/page1/page1_logo2.png">
+        <div class="underBlock">
+           <img id="imgIntro"/>
+        </div>
     </div>
-</div>
-<div class="err">提示:<span></span></div>
+    <div class="err">提示:<span></span></div>
 
 </script>
 

@@ -1,1 +1,3 @@
 <%= render 'form' %>
+<%= link_to "预览", "#", data: {toggle: "modal", target: "#myModal#{@product.id}"}, class: "btn btn-default" %>
+<%= render 'products/modal', :product => @product %>

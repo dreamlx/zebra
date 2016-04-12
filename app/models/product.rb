@@ -3,6 +3,7 @@ class Product < ActiveRecord::Base
   has_many :extentions, dependent: :destroy
   has_many :serials, dependent: :destroy
   mount_uploader :product_image, ImageUploader
+  mount_uploader :product_logo, ImageUploader
 
   # accepts_nested_attributes_for :serials
 

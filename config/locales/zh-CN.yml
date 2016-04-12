@@ -59,7 +59,9 @@ zh-CN:
       product:
         product_name: 产品名称
         product_image: 产品图片
-        score: 积分
+        score: 每件产品积分
+        product_logo: 产品Logo
+        desc: 产品详细说明
         created_at: 创建
         updated_at: 更新
       extention:

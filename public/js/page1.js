@@ -38,16 +38,37 @@ $(document).ready(function() {
                 }else{
                     $("#msg").text("经过专业扫码验证，此款"+data.product+"是品牌正品。请输入手机号绑定。")
                 }
+
                 if(data.desc=="序列号不存在"){
                     $("#msg").text("此序列号不存在！")
                 }
+
+                if (data.bgImg != "") {
+                    $("#divHeader").css("background-image", data.bgColor)
+                } else {
+                    $("#divHeader").css("background-image", "img/page1/3.png")
+                }
+
+
+                if (data.logo != "") {
+                    $("#divLogo").attr("src", data.logo);
+                }
+
+                if (data.stamp != "") {
+                    $("#stamp").attr("src", data.stamp);
+                }
+
+                if (data.Inrto != "") {
+                    $("#imgIntro").attr("src", data.Inrto);
+                }
+
                 $(".enter").click(function(){
                     toPut();
                 })
 
             },
             error:function(e){
-                location.reload()
+             //   location.reload()
             }
         })
     }

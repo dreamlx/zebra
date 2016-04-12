@@ -63,13 +63,16 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.admin_id = current_user.id
     if @product.save
-      redirect_to products_url
+      redirect_to edit_product_path(@product)
     else
       render 'new'
     end
   end
 
   def create_multiple
+    if params[:product][:how_many].to_i > 100
+      params[:product][:how_many] = 100
+    end
     @product = Product.find(params[:id])
     index = Serial.last.id
     params[:product][:how_many].to_i.times do |serial|
@@ -105,6 +108,6 @@ class ProductsController < ApplicationController
   private
    def product_params
     params.require(:product).permit(
-      :product_name, :product_image, :admin_id, :how_many, :score)
+      :product_name, :product_image, :admin_id, :how_many, :score, :product_logo, :desc)
    end
 end

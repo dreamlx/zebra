@@ -59,9 +59,9 @@ class SerialsController < ApplicationController
   def build_serial
     serial = Serial.find_by(serial_no: params["serial_no"])
     if serial
-      render json: {:return => "1", :desc => "序列号已存在", :product => serial.product.product_name, :cell => serial.phone, :datetime => serial.created_at}, status: 200
+      render json: {:return => "1", :desc => "序列号已存在", :product => serial.product.product_name, :product_logo => serial.product.product_logo, :product_image => serial.product.product_image, :cell => serial.phone, :datetime => serial.created_at}, status: 200
     else
-      render json: {:return => "0", :desc => "序列号不存在", :product => nil, :cell => nil, :datetime => nil}, status: 422
+      render json: {:return => "0", :desc => "序列号不存在", :product => nil, :product_logo => nil, :product_image => nil, :cell => nil, :datetime => nil}, status: 422
     end
     #
     # if serial.nil?
