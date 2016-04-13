@@ -22,7 +22,10 @@
       <div class="panel-footer text-center">
         <!-- <p class="text-center"> -->
             <%= f.button :submit, class: "btn btn-danger" %>
-            <%= link_to t(:back), :back, class: "btn btn-default" %>
+            <% if !@product.id.nil? %>
+            <%= link_to "预览", "#", data: {toggle: "modal", target: "#myModal#{@product.id}"}, class: "btn btn-primary" %>
+            <% end %>
+            <%= link_to t(:back), products_path, class: "btn btn-default" %>
         <!-- </p> -->
       </div>
       <% end %>
