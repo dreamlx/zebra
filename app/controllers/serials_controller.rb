@@ -23,8 +23,7 @@ class SerialsController < ApplicationController
 
   def query
     # @product = Product.find(params[:product])
-    @serials_list_grid = initialize_grid(Serial,
-                    name:'serials_list_grid')
+    @serials_list_grid = initialize_grid(Serial)
   end
 
   def multi_create
