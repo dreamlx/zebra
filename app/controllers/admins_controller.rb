@@ -13,11 +13,11 @@ class AdminsController < ApplicationController
 
   def create
     @admin = Admin.new(admin_params)
-    if @admin.save
+    if @admin.save && current_user.nil?
       log_in(@admin)
       redirect_to root_path
     else
-      render 'new'
+      redirect_to admins_url
     end
   end
 
@@ -54,6 +54,6 @@ class AdminsController < ApplicationController
   private
    def admin_params
     params.require(:admin).permit(
-      :name, :password, :password_confirmation, :address, :cell, :contact, :email, :website, :state)
+      :name, :password, :password_confirmation, :address, :cell, :contact, :email, :website, :state, :role)
    end
 end

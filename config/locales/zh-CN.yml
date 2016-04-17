@@ -2,11 +2,11 @@ zh-CN:
   activerecord:
     models:
       admin: 管理员
-      user: 用户
+      user: 会员
       prize: 奖品
       record: 记录
-      product: 产品
-      extention: 产品属性
+      product: 礼品
+      extention: 礼品属性
       thirdparty: 第三方认证机构
     attributes:
       admin:
@@ -19,17 +19,18 @@ zh-CN:
         email: 注册邮箱
         website: 公司网址
         state: 状态
+        role: 角色
         created_at: 创建
         updated_at: 更新
       user:
         openid: OpenId
         name: 昵称
         cell: 手机
-        created_at: 创建
-        updated_at: 更新
+        created_at: 创建时间
+        updated_at: 更新时间
       scanlog:
-        user: 用户
-        serial: 产品
+        user: 会员
+        serial: 礼品
         current_score: 当前积分
         created_at: 扫描时间
         updated_at: 更新
@@ -48,8 +49,8 @@ zh-CN:
         created_at: 创建
         updated_at: 更新
       record:
-        user_id: 用户
-        user: 用户
+        user_id: 会员
+        user: 会员
         city: 城市
         prize: 奖励
         code: 兑奖代码
@@ -57,11 +58,11 @@ zh-CN:
         created_at: 创建
         updated_at: 更新
       product:
-        product_name: 产品名称
-        product_image: 产品图片
-        score: 每件产品积分
-        product_logo: 产品Logo
-        desc: 产品详细说明
+        product_name: 礼品名称
+        product_image: 礼品图片
+        score: 每件礼品积分
+        product_logo: 礼品Logo
+        desc: 礼品详细说明
         created_at: 创建
         updated_at: 更新
       extention:
@@ -76,8 +77,8 @@ zh-CN:
         image: 图片
         created_at: 创建
         updated_at: 更新
-  new_user: 新建用户
-  user_list: 用户列表
+  new_user: 新建会员
+  user_list: 会员列表
   new_prize: 新建奖品
   prize_list: 奖品列表
   new_record: 新建记录
@@ -104,7 +105,7 @@ zh-CN:
   search: 搜索
   confirm: 确认
   deny: 否决
-  new_product: 新建产品
-  product_list: 产品列表
+  new_product: 新建礼品
+  product_list: 礼品列表
   thirdparty_list: 第三方认证机构列表
   edit_password: 密码修改

@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   load_and_authorize_resource
   def index
     @users = User.all
+    @users_grid = initialize_grid(
+      User.where(useradminrels: {admin_id: current_user.id}).joins(:useradminrels))
   end
 
   def new
@@ -13,6 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.name = Rumoji.encode(params[:user][:name])
     if @user.save
+      Useradminrel.find_or_create_by(user_id: @user.id, admin_id: current_user.id)
       redirect_to users_url
     else
       render 'new'

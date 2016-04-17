@@ -17,13 +17,17 @@ class Ability
     admin ||= Admin.new # guest user (not logged in)
     if admin.role == "admin"
       can :manage, :all
+    elsif admin.role == "thirdparty"
+      can [:show, :update],                                      Admin,    id: admin.id
+      can [:read],                                               Product
+      can [:read, :update, :qurey],                              Serial
     elsif admin.state == "通过"
       can :create,                                               Admin
       can [:show, :update],                                      Admin,    id: admin.id
       can [:read, :create, :update, :destroy],                   User
       can :create,                                               Product
       can [:read, :update, :destroy,:create_multiple],           Product,  admin_id: admin.id
-      can [:read, :create, :update, :destroy],                   Serial
+      can [:read, :create, :update, :destroy,:create_multiple, :qurey],  Serial
     else
       can :create,                                               Admin
       can [:show, :update],                                      Admin,    id: admin.id

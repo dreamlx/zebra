@@ -1,0 +1,25 @@
+<%= define_grid(@users_grid) do |g|
+
+  g.blank_slate  do
+	  "没有记录"
+	end
+
+  g.action_column html_check_box: false
+
+  g.column :name => '#', :attribute => 'id', filter: false
+
+  g.column :name => User.human_attribute_name(:name), :attribute => 'name', detach_with_id: :name_filter do |user|
+    Rumoji.decode(user.name) if user.name
+  end
+
+  g.column :name => User.human_attribute_name(:cell), :attribute => 'cell', detach_with_id: :cell_filter
+
+  g.column :name => User.human_attribute_name(:created_at), :attribute => 'created_at', filter: false do |user|
+    user.created_at.strftime('%F')
+  end
+
+  g.column :name => User.human_attribute_name(:updated_at), :attribute => 'updated_at', filter: false do |user|
+    user.updated_at.strftime('%F')
+  end
+
+end -%>

@@ -1,0 +1,232 @@
+﻿<link data-turbolinks-track="true" href="http://zebra.easybird.cn//assets/application-9f674e9fd925ff3aca42c05a9a21bdaad56211d8ce90de12ecd1924966593d71.css" media="all" rel="stylesheet">
+
+<script data-turbolinks-track="true" src="http://zebra.easybird.cn//assets/assets/application-ae2722ac77e8668d4e05ad6a5bdd5abd8220833c7bb38200313301a36ec98e35.js"></script>
+<style type="text/css">
+  .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+    border: none;
+}
+
+</style>
+<div class="row-fluid">
+  
+  <div class="col-sm-12 well" style="margin-bottom: 0px; border-bottom-width: 0px;">
+    <form class="form-horizontal">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="col-sm-3 control-label" style="font-size:20px;">商家条码管理维护</label>
+                </div>
+      </div>
+   <div class="col-sm-6">
+        <div class="form-group">
+          <label class="col-sm-1 control-label" style="padding-right:2px;">(带</label> <label class="col-sm-1 control-label" style="width: 5px; padding-left: 0px; padding-right: 0px; padding-top: 10px; color:red">*</label>   <label class="col-sm-3 control-label" style="padding-left:0px; width:180px;" >为必填内容，其他为选填)</label>
+                </div>
+      </div>
+
+    </form>
+  </div>
+<div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;">
+      <table class="table table-bordered table-hover" style="border-top-width: 0px;">
+        <tbody>
+        <tr>
+          <td colspan="7" style="background-color:gray;">基本信息</td>
+        </tr>
+          <tr>
+          <td></td>
+            <td><span style="color:red;  margin-right:2px;">*</span>订单编号</td>
+            <td>     
+                <input type="text" class="form-control" value="自动生成">
+            </td>
+            <td>
+                <span style="color:red;  margin-right:2px;">*</span>订单状态
+            </td>
+            <td>
+               <select class="form-control">
+                  <option>未确认</option>
+               </select>
+            </td>
+            <td>
+                <span style="color:red;  margin-right:2px;">*</span>订单日期
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+               </td>
+          </tr>
+          <tr>
+          <td></td>
+            <td><span style="color:red;  margin-right:2px;">*</span>商家</td>
+            <td>     
+               <select class="form-control">
+                  <option>商家1</option>
+                  <option>商家2</option>
+               </select>
+            </td>
+            <td>
+                <span style="color:red;  margin-right:2px;">*</span>门店
+            </td>
+            <td>
+               <select class="form-control">
+                  <option>门店1</option>
+                  <option>门店2</option>
+               </select>
+            </td>
+            <td>
+                配送时间  
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+               </td>
+          </tr>
+          <tr>
+            <td>购货人</td>
+            <td><input name="buyer" type="radio">老顾客
+            <input name="buyer" type="radio" style="margin-left:3%;">新顾客</td>
+            <td>     
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                <span style="color:red;  margin-right:2px;">*</span>联系电话
+            </td>
+            <td>
+             
+                <input type="text" class="form-control">
+            </td>
+            <td>
+                电子邮件  
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+               </td>
+          </tr>
+        
+        <tr>
+          <td colspan="7" style="background-color:gray;">收货人信息</td>
+        </tr>
+          <tr>
+          <td></td>
+            <td>地址列表</td>
+            <td>     
+               <select class="form-control">
+                  <option>地址列表1</option>
+                  <option>地址列表2</option>
+               </select>
+            </td>
+            <td>
+                收货人公司
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+            </td>
+            <td>
+                <span style="color:red;  margin-right:2px;">*</span>送货时间
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+               </td>
+          </tr>
+          <tr>
+          <td></td>
+            <td> <span style="color:red;  margin-right:2px;">*</span>收货人姓名</td>
+            <td>     
+                <input type="text" class="form-control" >
+            </td>
+            <td>
+                 <span style="color:red;  margin-right:2px;">*</span>收货人手机
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+            </td>
+            <td>
+               收货人固话
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+               </td>
+          </tr>
+          <tr>
+          <td><span style="color:red;  margin-right:2px;">*</span>收货人姓名</td>
+            <td>     
+                <select class="form-control">
+                  <option>上海市</option>
+                  <option>江苏省</option>
+               </select></td>
+            <td>      
+                <select class="form-control">
+                  <option>上海市</option>
+                  <option>苏州</option>
+               </select>
+            </td>
+            <td>
+                 <select class="form-control">
+                  <option>闸北区</option>
+                  <option>虹口区</option>
+               </select>
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+            </td>
+            <td>
+               收货人固话
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+               </td>
+          </tr>
+        <tr>
+          <td colspan="7" style="background-color:gray;">其他信息</td>
+        </tr>
+     <tr>
+          <td></td>
+          <td><span style="color:red;  margin-right:2px;">*</span>支付方式</td>
+             <td>
+                <select class="form-control">
+                  <option>货到付款</option>
+                  <option>在线支付</option>
+               </select>
+            </td>
+
+          <td><span style="color:red;  margin-right:2px;">*</span>配送方式</td>
+            <td>
+                 <select class="form-control">
+                  <option>快递</option>
+               </select>
+            </td>
+            <td>
+               配送时间
+            </td>
+            <td>
+                <input type="text" class="form-control" >
+               </td>
+          </tr>
+
+          <td></td>
+          <td>订单金额</td>
+             <td>
+                
+                <input type="text" class="form-control" >
+            </td>
+
+          <td>分润金额</td>
+            <td>
+                 
+                <input type="text" class="form-control" >
+            </td>
+            <td>
+               币种
+            </td>
+            <td>       <select class="form-control">
+                  <option>人民币</option>
+               </select>
+               </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="active">
+              <button type="submit" class="btn btn-info">保存</button>
+              <button type="submit" class="btn btn-warning">重置</button>
+              <button type="submit" class="btn btn-danger" onclick="location='../订单管理首页/订单列表.html'">取消</button>
+            </td>
+            </tr>
+        </tbody>
+      </table>
+</div>
+
+

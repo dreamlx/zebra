@@ -1,43 +1,33 @@
+<%= render 'grid' %>
 <div class="row-fluid">
-  <div class="col-md-12">
-    <div class="panel panel-info">
-      <!-- Default panel contents -->
-      <div class="panel-heading">
-        <h4 class="panel-title text-center"><%= t(:product_list) %></h4>
+  <div class="col-md-12 well" style="margin-bottom: 0px;border-bottom-width: 0px;padding-bottom: 0px;border-radius: 0px;">
+    <form role="form" class="form-horizontal row">
+      <div class="col-xs-4">
+          <div class="form-group">
+            <label for="exampleInput1" class="col-sm-6 control-label"><span><%= Product.human_attribute_name(:product_name) %></span></label>
+            <div class="col-sm-6">
+                <%= grid_filter @products_grid, :name_filter %>
+            </div>
+          </div>
       </div>
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th><%= Product.human_attribute_name("product_name") %></th>
-            <th><%= Product.human_attribute_name("score") %></th>
-            <th><%= Product.human_attribute_name("product_logo") %></th>
-            <th><%= Product.human_attribute_name("product_image") %></th>
-            <th colspan="4"><%= t(:operations) %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @products.each do |product| %>
-            <tr>
-              <td><%= product.id %></td>
-              <td><%= product.product_name %></td>
-              <td><%= product.score %></td>
-              <td><%= image_tag product.product_logo.thumb %></td>
-              <td><%= image_tag product.product_image.thumb %></td>
-              <td><%= link_to "预览", "#", data: {toggle: "modal", target: "#myModal#{product.id}"} %></td>
-              <td><%= link_to t(:show), product_path(product) if can? :read, Product %></td>
-              <td><%= link_to t(:edit), edit_product_path(product) if can? :edit, Product %></td>
-              <td><%= link_to t(:destroy), product, method: :delete, data: {confirm: t(:are_you_sure)} if can? :delete, Product %></td>
-            </tr>
-            <%= render 'products/modal', :product => product %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+      <div class="col-xs-4">
+          <div class="form-group">
+            <label for="exampleInput2"  class="col-sm-6 control-label" ><%= Product.human_attribute_name(:score) %></label>
+            <div class="col-sm-6">
+                <%= grid_filter @products_grid, :score_filter %>
+            </div>
+          </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="external-buttons">
+          <button class="btn btn-primary wg-external-submit-button" data-grid-name="grid">查询</button>
+          <%= link_to t(:new_product), new_product_path, class: "btn btn-danger" if can? :create, Product %>
+        </div>
+      </div>
+    </form>
   </div>
-</div>
 <div class="row-fluid">
-  <div class="col-md-4">
-    <%= link_to t(:new_product), new_product_path, class: "btn btn-danger" %>
+  <div class="col-md-12" style="padding-left: 0px;padding-right: 0px;">
+    <%= render_grid(@products_grid) %>
   </div>
 </div>

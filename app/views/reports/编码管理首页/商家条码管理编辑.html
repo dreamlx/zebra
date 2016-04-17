@@ -1,0 +1,133 @@
+﻿<link data-turbolinks-track="true" href="http://zebra.easybird.cn//assets/application-9f674e9fd925ff3aca42c05a9a21bdaad56211d8ce90de12ecd1924966593d71.css" media="all" rel="stylesheet">
+
+<script data-turbolinks-track="true" src="http://zebra.easybird.cn//assets/assets/application-ae2722ac77e8668d4e05ad6a5bdd5abd8220833c7bb38200313301a36ec98e35.js"></script>
+<style type="text/css">
+  .table-bordered > thead > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > tfoot > tr > td {
+    border: none;
+}
+
+</style>
+<div class="row-fluid">
+  
+  <div class="col-sm-12 well" style="margin-bottom: 0px; border-bottom-width: 0px;">
+    <form class="form-horizontal">
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label class="col-sm-3 control-label" style="font-size:20px;">商家条码管理维护</label>
+                </div>
+      </div>
+   <div class="col-sm-6">
+        <div class="form-group">
+          <label class="col-sm-1 control-label" style="padding-right:2px;">(带</label> <label class="col-sm-1 control-label" style="width: 5px; padding-left: 0px; padding-right: 0px; padding-top: 10px; color:red">*</label>   <label class="col-sm-3 control-label" style="padding-left:0px; width:180px;" >为必填内容，其他为选填)</label>
+                </div>
+      </div>
+
+    </form>
+  </div>
+<div class="col-sm-12" style="padding-left: 0px; padding-right: 0px;">
+      <table class="table table-bordered table-hover" style="border-top-width: 0px;">
+        <tbody>
+          <tr>
+            <td><span style="color:red;  margin-right:2px;">*</span>商家</td>
+            <td>     
+               <select id="ddlCompanyID" class="form-control">
+                 <option>商家1</option>
+                 <option>商家2</option>
+                </select>
+            </td>
+            <td>
+                <span style="color:red;  margin-right:2px;">*</span>积分
+            </td>
+            <td>
+               <input type="text" class="form-control" id="txtjifen">
+               </td>
+          </tr>
+          <tr>
+            <td><span style="color:red;  margin-right:2px;">*</span>商品代码</td>
+            <td>     
+                <input type="text" class="form-control" id="txtProductCode">
+            </td>
+            <td>
+                <span style="color:red;  margin-right:2px;">*</span>商品名称
+            </td>
+            <td>
+               <input type="text" class="form-control" id="txtProductName">
+               </td>
+          </tr>
+          <tr>
+            <td><span style="color:red;  margin-right:2px;">*</span>商品单价</td>
+            <td>     
+                <input type="text" class="form-control"  id="txtUnitPrice">
+            </td>
+            <td>
+                <span style="color:red;  margin-right:2px;">*</span>库存
+            </td>
+            <td>
+               <input type="text" class="form-control"  id="txtStock">
+               </td>
+          </tr>
+          <tr>
+            <td><input type="text" class="form-control" value="属性1"></td>
+            <td>     
+                <input type="text" class="form-control"  id="txtshuxing1">
+            </td>
+            
+            <td><input type="text" class="form-control" value="属性2"></td>
+            <td>
+               <input type="text" class="form-control"  id="txtshuxing2">
+               </td>
+          </tr>
+          <tr>
+           <td><input type="text" class="form-control" value="属性3"></td>
+            <td>     
+                <input type="text" class="form-control"  id="txtshuxing3">
+            </td>
+            <td><input type="text" class="form-control" value="属性4"></td>
+            <td>
+               <input type="text" class="form-control"  id="txtshuxing4">
+               </td>
+          </tr>
+          <tr>
+            <td><input type="text" class="form-control" value="属性5"></td>
+            <td>     
+                <input type="text" class="form-control"  id="txtshuxing5">
+            </td>
+            <td><input type="text" class="form-control" value="属性6"></td>
+            <td>
+               <input type="text" class="form-control"  id="txtshuxing6">
+               </td>
+          </tr>
+          <tr>
+           <td><input type="text" class="form-control" value="属性7"></td>
+            <td>     
+                <input type="text" class="form-control"  id="txtshuxing7">
+            </td>
+            <td><input type="text" class="form-control" value="属性8"></td>
+            <td>
+               <input type="text" class="form-control"  id="txtshuxing8">
+               </td>
+          </tr>
+          <tr>
+            <td>有效期</td>
+            <td>     
+                <input type="text" class="form-control"  id="txtyouxiaoqi">
+            </td>
+            <td>
+               
+            </td>
+            <td>
+               
+               </td>
+          </tr>
+          <tr>
+            <td colspan="4" class="active">
+              <button type="submit" class="btn btn-info">保存</button>
+              <button type="submit" class="btn btn-warning">重置</button>
+              <button type="submit" class="btn btn-danger" onclick="location='../编码管理首页/商家条码管理.html'">取消</button>
+            </td>
+            </tr>
+        </tbody>
+      </table>
+</div>
+
+

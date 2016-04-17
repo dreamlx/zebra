@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.where(:admin_id => current_user.id)
+    @products_grid = initialize_grid(
+      Product.where(admin_id: current_user.id))
   end
 
   def new
@@ -67,20 +69,6 @@ class ProductsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def create_multiple
-    if params[:product][:how_many].to_i > 100
-      params[:product][:how_many] = 100
-    end
-    @product = Product.find(params[:id])
-    index = Serial.last.id
-    params[:product][:how_many].to_i.times do |serial|
-      index = index + 1
-      @serial = Serial.create(product_id: params[:product][:product_id], serial_no: Digest::MD5.hexdigest(current_user.id.to_s).upcase + '-' + Time.now.to_i.to_s + '-' + index.to_s)
-      qr_code(@serial.id)
-    end
-    redirect_to @product
   end
 
   def download

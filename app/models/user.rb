@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_one :record
   has_many :scanlogs
+  has_many :useradminrels
+  has_many :admins, through: :useradminrels
   mount_uploader :image, ImageUploader
 
   state_machine :state, :initial => :'提交' do

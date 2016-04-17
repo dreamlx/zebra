@@ -1,0 +1,32 @@
+<%= define_grid(@serials_list_grid) do |g|
+
+  g.blank_slate  do
+	  "没有记录"
+	end
+
+  g.action_column html_check_box: false
+
+  g.column :name => '礼品名称', :attribute => 'product_id', detach_with_id: :product_filter,
+    custom_filter: Product.accessible_by(current_ability).map{|p| [p.product_name, p.id]} do |serial|
+    serial.product.product_name
+  end
+
+  g.column :name => '扫码用户', :attribute => 'user_id', filter: false do |serial|
+    Rumoji.decode(User.find(serial.user_id).name || "") if serial.user_id
+  end
+
+  g.column :name => '扫码手机', :attribute => 'phone', filter: false
+
+  g.column :name => '编码', :attribute => 'serial_no', filter: false
+
+  g.column :name => '状态', :attribute => 'state', filter: false
+
+  g.column :name => '建立日期', :attribute => 'created_at', filter: false do |serial|
+    serial.created_at.strftime('%F')
+  end
+
+  g.column :name => '扫码日期', :attribute => 'updated_at', filter: false do |serial|
+    serial.updated_at.strftime('%F')
+  end
+
+end -%>

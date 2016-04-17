@@ -1,5 +1,7 @@
 class Admin < ActiveRecord::Base
   has_many :products
+  has_many :useradminrels
+  has_many :users, through: :useradminrels
 
   has_secure_password
   validates :name, presence: true, uniqueness: true, on: :create
