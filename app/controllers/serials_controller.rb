@@ -79,7 +79,7 @@ class SerialsController < ApplicationController
       params[:product][:how_many] = 100
     end
     @product = Product.find(params[:id])
-    index = Serial.last.id
+    index = (Serial.last.id if Serial.any?) || 0
     params[:product][:how_many].to_i.times do |serial|
       index = index + 1
       @serial = Serial.create(product_id: params[:product][:product_id], serial_no: Digest::MD5.hexdigest(current_user.id.to_s).upcase + '-' + Time.now.to_i.to_s + '-' + index.to_s)
