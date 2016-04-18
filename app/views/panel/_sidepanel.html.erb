@@ -1,8 +1,28 @@
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingZero">
+      <h4 class="panel-title">
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+          快捷首页
+        </a>
+      </h4>
+    </div>
+    <div id="collapseZero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingZero">
+      <div class="panel-body">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to '商品列表', products_path %></li>
+          <li class="<%= 'active' if (params[:controller] == 'serials' && params[:action] == 'index') %>"><%= link_to '二维码生成', serials_path %></li>
+          <li class="<%= 'active' if (params[:controller] == 'serials' && params[:action] == 'query') %>"><%= link_to '二维码查询', query_serials_path %></li>
+          <li class="<%= 'active' if params[:controller] == 'users' %>"><%= link_to "会员列表", users_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
           商家管理首页
         </a>
       </h4>
