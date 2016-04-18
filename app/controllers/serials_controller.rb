@@ -5,7 +5,8 @@ class SerialsController < ApplicationController
     @serials = Serial.all
     @products = Product.where(:admin_id => current_user.id)
     @products_grid = initialize_grid(
-      Product.where(admin_id: current_user.id))
+      Product.where(admin_id: current_user.id),
+      name: 'products_list_grid')
   end
 
   def new
@@ -23,7 +24,8 @@ class SerialsController < ApplicationController
 
   def query
     # @product = Product.find(params[:product])
-    @serials_list_grid = initialize_grid(Serial)
+    @serials_list_grid = initialize_grid(Serial,
+      name: 'serials_list_grid')
   end
 
   def multi_create

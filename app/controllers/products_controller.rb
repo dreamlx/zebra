@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
   def index
     @products = Product.where(:admin_id => current_user.id)
     @products_grid = initialize_grid(
-      Product.where(admin_id: current_user.id))
+      Product.where(admin_id: current_user.id),
+      name: 'products_grid')
   end
 
   def new
