@@ -24,16 +24,16 @@
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          礼品管理首页
+          商品管理首页
         </a>
       </h4>
     </div>
     <div id="collapseTwo" class="panel-collapse collapse <%= 'in' if params[:controller] == 'products' %>" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
         <ul class="nav nav-pills nav-stacked">
-          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to '礼品列表', products_path %></li>
-          <!-- <li><%= link_to '礼品列表', '/reports/idx2_1.html' %></li> -->
-          <li><%= link_to '礼品分类', '/reports/idx2_2.html' %></li>
+          <li class="<%= 'active' if params[:controller] == 'products' %>"><%= link_to '商品列表', products_path %></li>
+          <!-- <li><%= link_to '商品列表', '/reports/idx2_1.html' %></li> -->
+          <li><%= link_to '商品分类', '/reports/idx2_2.html' %></li>
           <li><%= link_to '属性值列表', '/reports/idx2_3.html' %></li>
         </ul>
       </div>

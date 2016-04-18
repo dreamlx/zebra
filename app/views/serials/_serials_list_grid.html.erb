@@ -6,7 +6,7 @@
 
   g.action_column html_check_box: false
 
-  g.column :name => '礼品名称', :attribute => 'product_id', detach_with_id: :product_filter,
+  g.column :name => '商品名称', :attribute => 'product_id', detach_with_id: :product_filter,
     custom_filter: Product.accessible_by(current_ability).map{|p| [p.product_name, p.id]} do |serial|
     serial.product.product_name
   end

@@ -5,8 +5,8 @@ zh-CN:
       user: 会员
       prize: 奖品
       record: 记录
-      product: 礼品
-      extention: 礼品属性
+      product: 商品
+      extention: 商品属性
       thirdparty: 第三方认证机构
     attributes:
       admin:
@@ -30,7 +30,7 @@ zh-CN:
         updated_at: 更新时间
       scanlog:
         user: 会员
-        serial: 礼品
+        serial: 商品
         current_score: 当前积分
         created_at: 扫描时间
         updated_at: 更新
@@ -58,11 +58,11 @@ zh-CN:
         created_at: 创建
         updated_at: 更新
       product:
-        product_name: 礼品名称
-        product_image: 礼品图片
-        score: 每件礼品积分
-        product_logo: 礼品Logo
-        desc: 礼品详细说明
+        product_name: 商品名称
+        product_image: 商品图片
+        score: 每件商品积分
+        product_logo: 商品Logo
+        desc: 商品详细说明
         created_at: 创建
         updated_at: 更新
       extention:
@@ -105,7 +105,7 @@ zh-CN:
   search: 搜索
   confirm: 确认
   deny: 否决
-  new_product: 新建礼品
-  product_list: 礼品列表
+  new_product: 新建商品
+  product_list: 商品列表
   thirdparty_list: 第三方认证机构列表
   edit_password: 密码修改
