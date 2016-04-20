@@ -42,6 +42,5 @@ bower.json
 /config/application.yml
 public/uploads/user/image/*
 config/database.yml
-public/img/*.png
 public/img/qrcode/*
 public/uploads/tmp/*
