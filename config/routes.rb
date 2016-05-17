@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     get :confirm, on: :member
     get :deny, on: :member
   end
-  get 'login', to: 'welcome#login'
   resources :users do
     resources :scanlogs
     get :userbinding, on: :collection
