@@ -11,7 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'rails-i18n'
 gem 'rack-cors'
@@ -32,6 +32,14 @@ gem "best_in_place"
 gem 'rqrcode'
 gem 'rubyzip'
 gem 'zip-zip'
+
+gem 'font-awesome-sass'
+gem "haml-rails"
+
+source 'https://rails-assets.org/' do 
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-adminlte'
+end
 
 group :development, :test do
   gem 'byebug'

@@ -14,3 +14,8 @@ params:
             image: "data:image/png;base64,xxxxxxx"
           }
         }
+
+# change log
+
+		增加了 admin lte themes
+		http://stackoverflow.com/questions/31150408/integrating-adminlte-into-ruby-on-rails

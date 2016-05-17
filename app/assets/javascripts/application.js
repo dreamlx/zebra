@@ -15,11 +15,11 @@
 //= require jquery-ui
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require wice_grid
 //= require best_in_place
 //= require best_in_place.purr
-
+//= require adminlte
 
 $(document).ready(function() {
   /* Activating Best In Place */
