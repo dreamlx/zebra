@@ -3,6 +3,8 @@ class AdminsController < ApplicationController
   skip_load_and_authorize_resource :only => [:new, :create]
   skip_before_action :logged_in_admin, :only => [:new, :create]
 
+  layout "register"
+
   def index
     @admins = Admin.all
   end
