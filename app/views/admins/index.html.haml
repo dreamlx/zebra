@@ -1,0 +1,28 @@
+.row-fluid
+  .col-md-12
+    .panel.panel-danger
+      / Default panel contents
+      .panel-heading
+        %h4.panel-title.text-center= t(:admin_list)
+      %table.table.table-bordered.table-hover
+        %thead
+          %tr
+            %th #
+            %th= Admin.human_attribute_name("name")
+            %th= Admin.human_attribute_name("email")
+            %th= Admin.human_attribute_name("state")
+            %th{:colspan => "4"}= t(:operations)
+        %tbody
+          - @admins.each do |admin|
+            %tr
+              %td= admin.id
+              %td= admin.name
+              %td= admin.email
+              %td= admin.state
+              %td= link_to t(:confirm), confirm_admin_path(admin) if can? :confirm, Admin
+              %td= link_to t(:deny), deny_admin_path(admin) if can? :deny, Admin
+              %td= link_to t(:reset_password), edit_admin_path(admin) if can? :update, admin
+              %td= link_to t(:destroy), admin, method: :delete, data: {confirm: t(:are_you_sure)} if can? :delete, Admin
+.row-fluid
+  .col-md-4
+    = link_to t(:new_admin), new_admin_path, class: "btn btn-danger"

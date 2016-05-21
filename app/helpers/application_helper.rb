@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def active_class(link_path)
+    current_page?(link_path) ? "active" : ""
+  end
+
   def log_in(admin)
     session[:admin_id] = admin.id
     @current_user = admin

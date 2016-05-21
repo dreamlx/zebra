@@ -1,0 +1,27 @@
+.row-fluid
+  .col-md-6.col-md-offset-3
+    .panel.panel-primary
+      .panel-heading
+        %h4.panel-title.text-center= Product.model_name.human
+      = simple_form_for(@product, html: { class: 'form-horizontal' }, |
+        wrapper: :horizontal_form,                                    |
+        wrapper_mappings: {                                           |
+        check_boxes: :horizontal_radio_and_checkboxes,                |
+        radio_buttons: :horizontal_radio_and_checkboxes,              |
+        file: :horizontal_file_input,                                 |
+        boolean: :horizontal_boolean}) do |f|                         |
+        .panel-body
+          = f.input :product_name
+          = f.input :product_logo
+          = f.input :product_image
+          = f.input :score
+          /
+            <label class="control-label">Select File</label>
+            <input id="input-1" type="file" class="file">
+        .panel-footer.text-center
+          / <p class="text-center">
+          = f.button :submit, class: "btn btn-danger"
+          - if !@product.id.nil?
+            = link_to "预览", "#", data: {toggle: "modal", target: "#myModal#{@product.id}"}, class: "btn btn-primary"
+          = link_to t(:back), products_path, class: "btn btn-default"
+          / </p>

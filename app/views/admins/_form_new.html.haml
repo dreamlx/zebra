@@ -1,10 +1,10 @@
 .register-box
   .register-logo
-    %h4.panel-title.text-center 标码管理系统
+    %h4.panel-title.text-center 用户注册
   .register-box-body
     = simple_form_for(@admin, html: { class: 'form-horizontal' },wrapper: :horizontal_form,wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes,radio_buttons: :horizontal_radio_and_checkboxes,file: :horizontal_file_input,boolean: :horizontal_boolean}) do |f| 
       .login-box-msg 
-        用户注册
+        = f.error_messages
       .form-group.has-feedback
         %input.form-control.required{ type: :text, name: 'admin[name]', id: 'admin_name', placeholder: "企业名称" }
         %span.glyphicon.glyphicon-user.form-control-feedback

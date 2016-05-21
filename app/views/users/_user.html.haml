@@ -1,0 +1,8 @@
+%tr
+  %td= user.id
+  %td= user.openid
+  %td= Rumoji.decode(user.name) if user.name
+  %td= user.cell
+  %td= link_to t(:scanlog), user_scanlogs_path(user) if can? :read, User
+  %td= link_to t(:edit), edit_user_path(user) if can? :edit, User
+  %td= link_to t(:destroy), user, method: :delete, data: {confirm: t(:are_you_sure)} if can? :destroy, User

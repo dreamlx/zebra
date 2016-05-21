@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     def logged_in_admin
       unless logged_in?
         # flash[:danger] = t(:please_log_in)
-        # redirect_to login_path
+        redirect_to login_path
       end
     end
 end

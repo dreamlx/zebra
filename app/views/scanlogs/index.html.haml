@@ -1,0 +1,15 @@
+.row-fluid
+  .col-md-12
+    .panel.panel-info
+      / Default panel contents
+      .panel-heading
+        %h4.panel-title.text-center= t(:scanlog_list)
+      %table.table.table-bordered.table-hover
+        %thead
+          %tr
+            %th #
+            %th= Scanlog.human_attribute_name(:serial)
+            %th= Scanlog.human_attribute_name(:current_score)
+            %th= Scanlog.human_attribute_name(:created_at)
+        %tbody
+          = render @scanlogs

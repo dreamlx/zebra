@@ -1,0 +1,22 @@
+= render 'grid'
+.row-fluid
+  .col-md-12.well{:style => "margin-bottom: 0px;border-bottom-width: 0px;padding-bottom: 0px;border-radius: 0px;"}
+    %form.form-horizontal.row{:role => "form"}
+      .col-xs-4
+        .form-group
+          %label.col-sm-6.control-label{:for => "exampleInput1"}
+            %span= Product.human_attribute_name(:product_name)
+          .col-sm-6
+            = grid_filter @products_grid, :name_filter
+      .col-xs-4
+        .form-group
+          %label.col-sm-6.control-label{:for => "exampleInput2"}= Product.human_attribute_name(:score)
+          .col-sm-6
+            = grid_filter @products_grid, :score_filter
+      .col-xs-4
+        .external-buttons
+          %button.btn.btn-primary.wg-external-submit-button{"data-grid-name" => "products_list_grid"} 查询
+          = link_to t(:new_product), new_product_path, class: "btn btn-danger" if can? :create, Product
+  .row-fluid
+    .col-md-12{:style => "padding-left: 0px;padding-right: 0px;"}
+      = render_grid(@products_grid)

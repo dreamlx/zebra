@@ -1,0 +1,5 @@
+%tr
+  %td= scanlog.id
+  %td= Serial.find(scanlog.serial_id).product.product_name if scanlog.serial_id
+  %td= scanlog.current_score
+  %td= scanlog.created_at

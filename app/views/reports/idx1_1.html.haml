@@ -1,0 +1,46 @@
+%link{"data-turbolinks-track" => "true", :href => "http://zebra.easybird.cn//assets/application-9f674e9fd925ff3aca42c05a9a21bdaad56211d8ce90de12ecd1924966593d71.css", :media => "all", :rel => "stylesheet"}/
+%script{"data-turbolinks-track" => "true", :src => "http://zebra.easybird.cn//assets/assets/application-ae2722ac77e8668d4e05ad6a5bdd5abd8220833c7bb38200313301a36ec98e35.js"}
+.row-fluid
+  .col-sm-12.well{:style => "margin-bottom: 0px; border-bottom-width: 0px;"}
+    %form.form-horizontal
+      .col-sm-6
+        .form-group
+          %label.col-sm-2.control-label 公司
+          .col-sm-5
+            %select.form-control
+              %option 1
+              %option 2
+              %option 3
+              %option 4
+              %option 5
+      .col-sm-2.pull-right
+        .col-sm-2
+          %button.btn.btn-info{:type => "submit"} 查询
+  .col-sm-12{:style => "padding-left: 0px; padding-right: 0px;"}
+    %table.table.table-bordered.table-hover{:style => "border-top-width: 0px;"}
+      %thead
+        %tr
+          %th
+            \#
+            %input{:type => "checkbox"}/
+          %th 门店名称
+          %th 门店地址
+          %th 操作
+      %tbody
+        %tr
+          %td 1
+          %td xx
+          %td yy
+          %td
+            %button.btn.btn-default{:type => "submit"} 修改
+            %button.btn.btn-danger{:type => "submit"} 删除
+        %tr
+          %td 2
+          %td ww
+          %td zz
+          %td
+            %button.btn.btn-default{:type => "submit"} 修改
+            %button.btn.btn-danger{:type => "submit"} 删除
+        %tr
+          %td.active{:colspan => "4"}
+            %button.btn.btn-default{:onclick => "location='../商家管理首页/商家门店列表编辑.html'", :type => "submit"} 新增

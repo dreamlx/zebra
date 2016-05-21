@@ -1,6 +1,0 @@
-<tr>
-  <td><%= scanlog.id %></td>
-  <td><%= Serial.find(scanlog.serial_id).product.product_name if scanlog.serial_id %></td>
-  <td><%= scanlog.current_score %></td>
-  <td><%= scanlog.created_at %></td>
-</tr>

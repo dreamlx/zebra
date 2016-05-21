@@ -1,0 +1,40 @@
+%nav.navbar.navbar-default
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "/", :rel => "home", :style => "padding-top: 0px; padding-bottom: 0px;"}
+        %img{:src => "/img/logo.png", :style => "height: 100%; width: auto;"}
+          = link_to t(:zebra), root_path, class: "navbar-brand"
+    / Collect the nav links, forms, and other content for toggling
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+      - if logged_in?
+        - if current_user.role == "admin"
+          %ul.nav.navbar-nav.navbar-right
+            %li{:class => "#{'active' if (params[:controller] == 'admins' && params[:action] == 'edit')}"}
+              = link_to t(:edit_password), edit_admin_path(current_user)
+            %li{:class => "#{'active' if (params[:controller] == 'admins' &&  params[:action] == 'index')}"}
+              = link_to Admin.model_name.human, admins_path
+            %li
+              = link_to t('logout'), logout_path, method: :delete
+        - elsif current_user.state == "通过"
+          %ul.nav.navbar-nav.navbar-right
+            %li{:class => "#{'active' if (params[:controller] == 'admins' && params[:action] == 'edit')}"}
+              = link_to t(:edit_password), edit_admin_path(current_user)
+            %li
+              = link_to t('logout'), logout_path, method: :delete
+        - else
+          %ul.nav.navbar-nav.navbar-right
+            %li{:class => "#{'active' if (params[:controller] == 'admins' && params[:action] == 'edit')}"}
+              = link_to t(:edit_password), edit_admin_path(current_user)
+            %li
+              = link_to t('logout'), logout_path, method: :delete
+      - else
+        %ul.nav.navbar-nav.navbar-right
+          %li= link_to t('login'), login_path
+    / /.navbar-collapse
+  / /.container-fluid

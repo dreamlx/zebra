@@ -1,0 +1,13 @@
+.col-md-10
+  %h3= t(:prize_list)
+.col-md-2
+  = link_to t("new_prize"), new_prize_path, class: "btn btn-danger"
+.col-md-12
+  %table.table
+    %thead
+      %tr
+        - Prize::HEADERS.each do |column|
+          %th= Prize.human_attribute_name(column)
+        %th{:colspan => "2"}= t(:operations)
+    %tbody
+      = render @prizes

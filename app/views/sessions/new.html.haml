@@ -4,9 +4,11 @@
       二维码综合跟踪平台 
     .login-box-body
       = simple_form_for(:session, url: login_path, html: { class: 'form-horizontal' },wrapper: :horizontal_form,wrapper_mappings: {check_boxes: :horizontal_radio_and_checkboxes,radio_buttons: :horizontal_radio_and_checkboxes,file: :horizontal_file_input,boolean: :horizontal_boolean}) do |f|
+        .login-box-msg 
         .form-group.has-feedback
           %input.form-control{type: :email, placeholder: "Email 邮箱", name: 'session[email]', id: :session_email}
           %span.glyphicon.glyphicon-envelope.form-control-feedback
+
         .form-group.has-feedback
           %input.form-control{type: :password, placeholder: 'Password 口令', name: 'session[password]', id: :session_password}
           %span.glyphicon.glyphicon-lock.form-control-feedback

@@ -1,0 +1,5 @@
+%tr
+  - Prize::HEADERS.each do |column|
+    %td= prize.send(column)
+  %td= link_to t(:edit), edit_prize_path(prize)
+  %td= link_to t(:destroy), prize, method: :delete, data: {confirm: t(:are_you_sure)}
