@@ -1,19 +1,64 @@
-- if current_user && (current_user.state == "否决")
+
+
+%section.content-header
+  %h1 下午好，test
+%section.content
   .row
-    .col-sm-6.col-sm-offset-3
-      .panel.panel-danger
-        .panel-heading
-          %h4.panel-title.text-center 提示
-        .panel-body
-          %p.text-center
-            您的账户已被禁用
-- elsif current_user
-  .row
-    .col-sm-6.col-sm-offset-3
-      .panel.panel-success
-        .panel-heading
-          %h4.panel-title.text-center 提示
-        .panel-body
-          %p.text-center
-            欢迎使用斑码二维码管理系统
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        %span{ class: "info-box-icon bg-aqua"}
+          %i{ class: "fa fa-files-o"}
+        .info-box-content
+          %span{ class: "info-box-text"}
+            编码统计
+          %span{ class: "info-box-text" }
+            258       
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        %span{ class: "info-box-icon bg-yellow"}
+          %i{ class: "fa fa-envelope-o"}
+        .info-box-content
+          %span{ class: "info-box-text"}
+            会员统计
+          %span{ class: "info-box-text" }
+            442
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        %span{ class: "info-box-icon bg-green"}
+          %i{ class: "fa fa-flag-o"}
+        .info-box-content
+          %span{ class: "info-box-text"}
+            商品统计
+          %span{ class: "info-box-text" }
+            4
+    .col-md-3.col-sm-6.col-xs-12
+      .info-box
+        %span{ class: "info-box-icon bg-red"}
+          %i{ class: "fa fa-files-o"}
+        .info-box-content
+          %span{ class: "info-box-text"}
+            订单统计
+          %span{ class: "info-box-text" }
+            2
+
+
+    
+  - if current_user && (current_user.state == "否决")
+    .row
+      .col-sm-6.col-sm-offset-3
+        .panel.panel-danger
+          .panel-heading
+            %h4.panel-title.text-center 提示
+          .panel-body
+            %p.text-center
+              您的账户已被禁用
+  - elsif current_user
+    .row
+      .col-sm-6.col-sm-offset-3
+        .panel.panel-success
+          .panel-heading
+            %h4.panel-title.text-center 提示
+          .panel-body
+            %p.text-center
+              欢迎使用斑码二维码管理系统
 
