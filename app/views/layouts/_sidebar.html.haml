@@ -16,6 +16,115 @@
       %a{href: root_path}
         %i.fa.fa-dashboard
         %span Dashboard
-        %i{class: "fa fa-angle-left pull-right"}
+        
+    %li{class: "treeview"}
+      %a{href: '#'}
+        %i{class: "fa fa-pie-chart"}
+        %span 商家管理
+        %i{class: "fa fa-angle-left pull-right"   }
+      %ul.treeview-menu
+        %li
+          %a{href: '/reports/idx1_1.html'}
+            %i{ class: "fa fa-circle-o"    }
+            商家列表
+        %li
+          %a{href: '/reports/idx1_2.html'}
+            %i{ class: "fa fa-circle-o"    }
+            门店列表
+        %li
+          %a{href: '/reports/idx1_3.html'}
+            %i{ class: "fa fa-circle-o"    }
+            终端管理
+        %li
+          %a{href: '/reports/idx1_5.html'}
+            %i{ class: "fa fa-circle-o"    }
+            积分管理
+        %li
+          %a{href: '/reports/idx1_6.html'}
+            %i{ class: "fa fa-circle-o"    }
+            利润分成                                          
+    
+    %li{class: "treeview"}
+      %a{href: '#'}
+        %i{class: "fa fa-pie-chart"}
+        %span 商品管理
+        %i{class: "fa fa-angle-left pull-right"   }
+      %ul.treeview-menu
+        %li
+          %a{href: products_path }
+            %i{ class: "fa fa-circle-o"    }
+            商品列表
+        %li
+          %a{href: '/reports/idx2_2.html'}
+            %i{ class: "fa fa-circle-o"    }
+            商品分类
+        %li
+          %a{href: '/reports/idx2_3.html'}
+            %i{ class: "fa fa-circle-o"    }
+            属性值列表
+        
 
+    %li{class: "treeview"}
+      %a{href: '#'}
+        %i{class: "fa fa-pie-chart"}
+        %span 商品管理
+        %i{class: "fa fa-angle-left pull-right"   }
+      %ul.treeview-menu
+        %li
+          %a{href: products_path }
+            %i{ class: "fa fa-circle-o"    }
+            编码管理
+        %li
+          %a{href: serials_path}
+            %i{ class: "fa fa-circle-o"    }
+            二维码生成
+        %li
+          %a{href: query_serials_path }
+            %i{ class: "fa fa-circle-o"    }
+            二维码查询
+        %li
+          %a{href: '/reports/idx3_2.html' }
+            %i{ class: "fa fa-circle-o"    }
+            二维码激活数
+        %li
+          %a{href:'/reports/idx3_3.html' }
+            %i{ class: "fa fa-circle-o"    }
+            商家条码管理
+        %li
+          %a{href:'/reports/idx3_7.html' }
+            %i{ class: "fa fa-circle-o"    }
+            异常扫码查询
+        %li
+          %a{href:'/reports/idx3_6.html' }
+            %i{ class: "fa fa-circle-o"    }
+            二维码注销
+       
 
+    %li{class: "treeview"}
+      %a{href: '#'}
+        %i{class: "fa fa-pie-chart"}
+        %span 会员管理
+        %i{class: "fa fa-angle-left pull-right"   }
+      %ul.treeview-menu
+        %li
+          %a{href: users_path }
+            %i{ class: "fa fa-circle-o"    }
+            会员列表
+        %li
+          %a{href: '/reports/idx6_2.html'}
+            %i{ class: "fa fa-circle-o"    }
+            积分管理
+    %li{class: "treeview"}
+      %a{href: '#'}
+        %i{class: "fa fa-pie-chart"}
+        %span 短信管理
+        %i{class: "fa fa-angle-left pull-right"   }
+      %ul.treeview-menu
+        %li
+          %a{href: '/reports/idx8_1.html' }
+            %i{ class: "fa fa-circle-o"    }
+            批量发送短信
+        %li
+          %a{href: '/reports/idx8_2.html'}
+            %i{ class: "fa fa-circle-o"    }
+            短信接口设置
