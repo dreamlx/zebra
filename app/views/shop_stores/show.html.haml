@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Tile:
+  = @shop_store.tile
+%p
+  %b Code:
+  = @shop_store.code
+%p
+  %b Contact:
+  = @shop_store.contact
+%p
+  %b Mobile:
+  = @shop_store.mobile
+%p
+  %b Address:
+  = @shop_store.address
+
+= link_to 'Edit', edit_shop_store_path(@shop_store)
+\|
+= link_to 'Back', shop_stores_path

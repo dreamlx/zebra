@@ -1,0 +1,40 @@
+%section.content-header
+  %h1 
+    =t(:shop_store_list)
+%section.content
+  .row
+    .col-md-12
+      .box
+        .box-body
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th 
+                  =ShopStore.human_attribute_name(:title)
+                %th
+                  =ShopStore.human_attribute_name(:code) 
+                %th
+                  =ShopStore.human_attribute_name(:contact) 
+                %th
+                  =ShopStore.human_attribute_name(:mobile) 
+                %th
+                  =ShopStore.human_attribute_name(:address) 
+                %th
+                %th
+                %th
+
+            %tbody
+              - @shop_stores.each do |shop_store|
+                %tr
+                  %td= shop_store.tile
+                  %td= shop_store.code
+                  %td= shop_store.contact
+                  %td= shop_store.mobile
+                  %td= shop_store.address
+                  %td= link_to 'Show', shop_store
+                  %td= link_to 'Edit', edit_shop_store_path(shop_store)
+                  %td= link_to 'Destroy', shop_store, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+          %br
+        .box-footer
+          = link_to t(:new_shop_store), new_shop_store_path, class: 'btn btn-primary'

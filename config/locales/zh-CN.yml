@@ -72,11 +72,17 @@ zh-CN:
         created_at: 创建
         updated_at: 更新
       thirdparty:
-        name: 名称
-        code: 代码
-        image: 图片
+        name:       名称
+        code:       代码
+        image:      图片
         created_at: 创建
         updated_at: 更新
+      shop_store:
+        title:      商家名字
+        code:       商家编码
+        contact:    联系人
+        mobile:     联系电话
+        address:    商家地址
   new_user: 新建会员
   user_list: 会员列表
   new_prize: 新建奖品
@@ -107,5 +113,7 @@ zh-CN:
   deny: 否决
   new_product: 新建商品
   product_list: 商品列表
+  shop_store_list: 商家列表
+  new_shop_store: 创建商家
   thirdparty_list: 第三方认证机构列表
   edit_password: 密码修改

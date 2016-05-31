@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :shop_stores
   root 'welcome#index'
   resources :admins do
     get :confirm, on: :member
     get :deny, on: :member
   end
+  resources :shop_stores
   resources :users do
     resources :scanlogs
     get :userbinding, on: :collection
