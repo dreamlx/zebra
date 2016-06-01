@@ -20,20 +20,22 @@
                 %th
                   =ShopStore.human_attribute_name(:address) 
                 %th
-                %th
-                %th
+
 
             %tbody
               - @shop_stores.each do |shop_store|
                 %tr
-                  %td= shop_store.tile
+                  %td= shop_store.title
                   %td= shop_store.code
                   %td= shop_store.contact
                   %td= shop_store.mobile
                   %td= shop_store.address
-                  %td= link_to 'Show', shop_store
-                  %td= link_to 'Edit', edit_shop_store_path(shop_store)
-                  %td= link_to 'Destroy', shop_store, :method => :delete, :data => { :confirm => 'Are you sure?' }
+                  %td
+                    = link_to t('show'), shop_store, class: 'btn btn-info'
+                    /|
+                    = link_to t('edit'), edit_shop_store_path(shop_store), class: 'btn btn-warning'
+                    /|
+                    = link_to t('destroy'), shop_store, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
           %br
         .box-footer

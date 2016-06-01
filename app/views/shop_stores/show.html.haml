@@ -1,21 +1,26 @@
-%p#notice= notice
-
-%p
-  %b Tile:
-  = @shop_store.tile
-%p
-  %b Code:
-  = @shop_store.code
-%p
-  %b Contact:
-  = @shop_store.contact
-%p
-  %b Mobile:
-  = @shop_store.mobile
-%p
-  %b Address:
-  = @shop_store.address
-
-= link_to 'Edit', edit_shop_store_path(@shop_store)
-\|
-= link_to 'Back', shop_stores_path
+.content
+  .row
+    .box.box-primary
+      .box-header.with-border
+        %h1
+          = t(:show_shop_store)
+      .box-body
+        %p
+          %label= ShopStore.human_attribute_name(:title) + ":"
+          = @shop_store.title
+        %p
+          %label= ShopStore.human_attribute_name(:code)+ ":"
+          = @shop_store.code
+        %p
+          %label= ShopStore.human_attribute_name(:contact)+ ":"
+          = @shop_store.contact
+        %p
+          %label= ShopStore.human_attribute_name(:mobile)+ ":"
+          = @shop_store.mobile
+        %p
+          %label= ShopStore.human_attribute_name(:address)+ ":"
+          = @shop_store.address
+      .box-footer
+        = link_to I18n.t('edit'), edit_shop_store_path(@shop_store), class: 'btn btn-primary'
+        \|
+        = link_to I18n.t('back'), shop_stores_path, class: 'btn btn-info'

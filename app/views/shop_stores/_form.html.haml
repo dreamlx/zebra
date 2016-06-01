@@ -7,19 +7,19 @@
           %li= msg
 
   .form-group
-    = f.label :tile
-    = f.text_field :tile
+    = f.label :title
+    = f.text_field :title, class: 'form-control'
   .form-group
     = f.label :code
-    = f.text_field :code
+    = f.text_field :code, class: 'form-control'
   .form-group
     = f.label :contact
-    = f.text_field :contact
+    = f.text_field :contact, class: 'form-control'
   .form-group
     = f.label :mobile
-    = f.text_field :mobile
+    = f.text_field :mobile, class: 'form-control'
   .form-group
     = f.label :address
-    = f.text_field :address
+    = f.text_field :address, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit I18n.t('save'), class: 'btn btn-primary'

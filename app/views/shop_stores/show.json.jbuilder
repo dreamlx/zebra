@@ -1,1 +1,1 @@
-json.extract! @shop_store, :id, :tile, :code, :contact, :mobile, :address, :created_at, :updated_at
+json.extract! @shop_store, :id, :title, :code, :contact, :mobile, :address, :created_at, :updated_at

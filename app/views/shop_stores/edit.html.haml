@@ -1,7 +1,12 @@
-%h1 Editing shop_store
-
-= render 'form'
-
-= link_to 'Show', @shop_store
-\|
-= link_to 'Back', shop_stores_path
+.content
+  .row
+    .box.box-primary
+      .box-header.with-border
+        %h1
+          = t(:edit_shop_store)
+      .box-body
+        = render 'form'
+      .box-footer
+        = link_to 'Show', @shop_store
+        \|
+        = link_to t(:back), shop_stores_path

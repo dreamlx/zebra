@@ -111,9 +111,12 @@ zh-CN:
   search: 搜索
   confirm: 确认
   deny: 否决
+  save: 保存
   new_product: 新建商品
   product_list: 商品列表
   shop_store_list: 商家列表
   new_shop_store: 创建商家
+  edit_shop_store: 编辑商家
+  show_shop_store: 商家详情
   thirdparty_list: 第三方认证机构列表
   edit_password: 密码修改

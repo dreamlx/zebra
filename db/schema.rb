@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20160531044616) do
   add_index "serials", ["product_id"], name: "index_serials_on_product_id", using: :btree
 
   create_table "shop_stores", force: :cascade do |t|
-    t.string   "tile",       limit: 255
+    t.string   "title",      limit: 255
     t.string   "code",       limit: 255
     t.string   "contact",    limit: 255
     t.string   "mobile",     limit: 255
