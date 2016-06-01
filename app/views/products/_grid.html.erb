@@ -31,19 +31,19 @@
     render 'products/modal', :product => product
     buffer += ' '
     buffer +=
-    if can? :read, Product
-      link_to "预览", "#", data: {toggle: "modal", target: "#myModal#{product.id}"}
-    end
+    #if can? :read, Product
+      link_to "预览", "#", data: {toggle: "modal", target: "#myModal#{product.id}"}, class: 'btn btn-info'
+    #end
     buffer += ' '
     buffer +=
-    if can? :update, Product
-      link_to t(:edit), edit_product_path(product)
-    end
+    #if can? :update, Product
+      link_to t(:edit), edit_product_path(product), class: 'btn btn-warning'
+    #end
     buffer += ' '
     buffer +=
-    if can? :destroy, Product
-      link_to t(:destroy), product, method: :delete, data: {confirm: t(:are_you_sure)}
-    end
+    #if can? :destroy, Product
+      link_to t(:destroy), product, method: :delete, data: {confirm: t(:are_you_sure)}, class: 'btn btn-danger'
+    #end
     raw buffer
   end
 
