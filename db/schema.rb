@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531044616) do
+ActiveRecord::Schema.define(version: 20160601071919) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -136,6 +136,9 @@ ActiveRecord::Schema.define(version: 20160531044616) do
     t.string   "image",      limit: 255
     t.date     "birthday"
     t.string   "level",      limit: 255
+    t.string   "type",       limit: 255
+    t.string   "memo",       limit: 255
+    t.string   "code",       limit: 255
   end
 
   add_foreign_key "records", "users"

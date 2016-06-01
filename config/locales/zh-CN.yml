@@ -28,6 +28,9 @@ zh-CN:
         cell: 手机
         created_at: 创建时间
         updated_at: 更新时间
+        code: 用户编码
+        memo: 用户说明
+        type: 用户类型
       scanlog:
         user: 会员
         serial: 商品

@@ -1,0 +1,3 @@
+class StoreAssistant < User
+
+end
