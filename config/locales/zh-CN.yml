@@ -8,6 +8,7 @@ zh-CN:
       product: 商品
       extention: 商品属性
       thirdparty: 第三方认证机构
+      store_assistant: 分销导购
     attributes:
       admin:
         name: 公司名称
@@ -31,6 +32,7 @@ zh-CN:
         code: 用户编码
         memo: 用户说明
         type: 用户类型
+
       scanlog:
         user: 会员
         serial: 商品

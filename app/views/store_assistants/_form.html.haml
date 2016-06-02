@@ -1,0 +1,12 @@
+= form_for @store_assistant do |f|
+  - if @store_assistant.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@store_assistant.errors.count, "error")} prohibited this store_assistant from being saved:"
+      %ul
+        - @store_assistant.errors.full_messages.each do |msg|
+          %li= msg
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .actions
+    = f.submit 'Save'

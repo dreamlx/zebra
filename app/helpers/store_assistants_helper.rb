@@ -1,0 +1,2 @@
+module StoreAssistantsHelper
+end

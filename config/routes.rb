@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :store_assistants
   resources :shop_stores
   root 'welcome#index'
   resources :admins do
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
     get :deny, on: :member
   end
   resources :shop_stores
+  resources :store_assistants
   resources :users do
     resources :scanlogs
     get :userbinding, on: :collection
