@@ -10,16 +10,16 @@
           %i{ class: "fa fa-files-o"}
         .info-box-content
           %span{ class: "info-box-text"}
-            编码统计
+            = link_to '二维码管理', serials_path
           %span{ class: "info-box-text" }
-            258       
+            258
     .col-md-3.col-sm-6.col-xs-12
       .info-box
         %span{ class: "info-box-icon bg-yellow"}
           %i{ class: "fa fa-envelope-o"}
         .info-box-content
           %span{ class: "info-box-text"}
-            会员统计
+            = link_to '会员管理', users_path
           %span{ class: "info-box-text" }
             442
     .col-md-3.col-sm-6.col-xs-12
@@ -28,7 +28,7 @@
           %i{ class: "fa fa-flag-o"}
         .info-box-content
           %span{ class: "info-box-text"}
-            商品统计
+            = link_to '商品管理', products_path
           %span{ class: "info-box-text" }
             4
     .col-md-3.col-sm-6.col-xs-12
@@ -42,7 +42,7 @@
             2
 
 
-    
+
   - if current_user && (current_user.state == "否决")
     .row
       .col-sm-6.col-sm-offset-3
@@ -61,4 +61,3 @@
           .panel-body
             %p.text-center
               欢迎使用斑码二维码管理系统
-
