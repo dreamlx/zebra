@@ -36,7 +36,7 @@ gem 'zip-zip'
 gem 'font-awesome-sass'
 gem "haml-rails"
 
-source 'https://rails-assets.org/' do 
+source 'https://rails-assets.org/' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-adminlte'
 end
@@ -54,8 +54,8 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-passenger', '0.0.2'
   # gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
+  # gem 'binding_of_caller'
+  # gem 'meta_request'
   gem "erb2haml"
 end
 

@@ -8,7 +8,7 @@ zh-CN:
       product: 商品
       extention: 商品属性
       thirdparty: 第三方认证机构
-      store_assistant: 分销导购
+      store_assistant: 分销渠道
     attributes:
       admin:
         name: 公司名称
@@ -88,6 +88,11 @@ zh-CN:
         contact:    联系人
         mobile:     联系电话
         address:    商家地址
+      store_assistant:
+        name: 姓名
+        code: 编码
+        birthday: 生日
+        score: 积分
   new_user: 新建会员
   user_list: 会员列表
   new_prize: 新建奖品
@@ -125,3 +130,4 @@ zh-CN:
   show_shop_store: 商家详情
   thirdparty_list: 第三方认证机构列表
   edit_password: 密码修改
+  new_store_assistant: 新建
