@@ -16,8 +16,8 @@
       .col-xs-4
         .external-buttons
           %button.btn.btn-primary.wg-external-submit-button{"data-grid-name" => "products_list_grid"} 查询
-          = link_to t(:new_product), new_product_path, class: "btn btn-danger"
-          -# = link_to '生成二维码', multi_create_serials_path(product: 1), class: "btn btn-success" 
+          -# = link_to t(:new_product), new_product_path, class: "btn btn-danger"
+          = link_to '生成二维码', multi_create_serials_path(product: 1), class: "btn btn-success"
   .row-fluid
     .col-md-12{:style => "padding-left: 0px;padding-right: 0px;"}
-      = render_grid(@products_grid)
+      = render_grid(@serials_grid)

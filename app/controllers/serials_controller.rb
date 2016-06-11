@@ -7,6 +7,9 @@ class SerialsController < ApplicationController
     @products_grid = initialize_grid(
       Product.where(admin_id: current_user.id),
       name: 'products_list_grid')
+    @serials_grid = initialize_grid(
+      Serial,
+      name: 'all_serials_list_grid')
   end
 
   def new

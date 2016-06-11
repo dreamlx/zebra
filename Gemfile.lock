@@ -1,5 +1,4 @@
 GEM
-  remote: https://ruby.taobao.org/
   remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.4)
@@ -290,7 +289,7 @@ DEPENDENCIES
   best_in_place
   byebug
   cancancan
-  capistrano-passenger (= 0.0.2)
+  capistrano-passenger
   capistrano-rails
   capistrano-rvm
   carrierwave
@@ -333,4 +332,4 @@ DEPENDENCIES
   zip-zip
 
 BUNDLED WITH
-   1.12.2
+   1.12.5

@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.org'
+# source 'https://ruby.taobao.org'
 
 gem 'rails', '4.2.4'
 gem 'mysql2', '0.3.20'
@@ -50,9 +50,12 @@ end
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  # gem 'capistrano', '3.5.0'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
-  gem 'capistrano-passenger', '0.0.2'
+  gem 'capistrano-passenger'
+  # gem "airbrussh", require: false
+  # gem 'capistrano-harrow'
   # gem 'better_errors'
   # gem 'binding_of_caller'
   # gem 'meta_request'
