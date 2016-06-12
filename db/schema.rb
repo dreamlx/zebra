@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601071919) do
+ActiveRecord::Schema.define(version: 20160612054203) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -85,14 +85,15 @@ ActiveRecord::Schema.define(version: 20160601071919) do
   end
 
   create_table "serials", force: :cascade do |t|
-    t.string   "phone",      limit: 255
-    t.string   "open_id",    limit: 255
-    t.integer  "user_id",    limit: 4
-    t.string   "serial_no",  limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "product_id", limit: 4
-    t.string   "state",      limit: 255
+    t.string   "phone",              limit: 255
+    t.string   "open_id",            limit: 255
+    t.integer  "user_id",            limit: 4
+    t.string   "serial_no",          limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "product_id",         limit: 4
+    t.string   "state",              limit: 255
+    t.integer  "store_assistant_id", limit: 4
   end
 
   add_index "serials", ["product_id"], name: "index_serials_on_product_id", using: :btree

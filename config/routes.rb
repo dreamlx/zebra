@@ -24,8 +24,10 @@ Rails.application.routes.draw do
     get :scan, on: :collection
     get :build_serial, on: :collection
     get :multi_create, on: :collection
+    get :single_create, on: :collection
     get :query, on: :collection
     patch 'create_multiple', :on => :member
+    patch 'create_single', :on => :member
     patch 'download', :on => :member
   end
   resources :records do

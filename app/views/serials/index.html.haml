@@ -1,4 +1,4 @@
-= render 'grid'
+= render 'products_list_grid'
 .row-fluid
   .col-md-12.well{:style => "margin-bottom: 0px;border-bottom-width: 0px;padding-bottom: 0px;border-radius: 0px;"}
     %form.form-horizontal.row{:role => "form"}
@@ -9,15 +9,11 @@
           .col-sm-6
             = grid_filter @products_grid, :name_filter
       .col-xs-4
-        .form-group
-          %label.col-sm-6.control-label{:for => "exampleInput2"}= Product.human_attribute_name(:score)
-          .col-sm-6
-            = grid_filter @products_grid, :score_filter
+
       .col-xs-4
         .external-buttons
           %button.btn.btn-primary.wg-external-submit-button{"data-grid-name" => "products_list_grid"} 查询
           -# = link_to t(:new_product), new_product_path, class: "btn btn-danger"
-          = link_to '生成二维码', multi_create_serials_path(product: 1), class: "btn btn-success"
   .row-fluid
-    .col-md-12{:style => "padding-left: 0px;padding-right: 0px;"}
-      = render_grid(@serials_grid)
+    .col-md-12
+      = render_grid(@products_grid)

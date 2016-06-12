@@ -6,6 +6,10 @@
 
   g.action_column html_check_box: false
 
+  g.column :name => '医生', :attribute => 'store_assistant_id', filter: false do |serial|
+    Rumoji.decode(StoreAssistant.find(serial.store_assistant_id).name || "") if serial.store_assistant_id
+  end
+
   g.column :name => '扫码用户', :attribute => 'user_id', filter: false do |serial|
     Rumoji.decode(User.find(serial.user_id).name || "") if serial.user_id
   end

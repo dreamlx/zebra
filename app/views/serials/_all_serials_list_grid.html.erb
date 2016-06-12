@@ -1,4 +1,4 @@
-<%= define_grid(@serials_list_grid) do |g|
+<%= define_grid(@serials_grid) do |g|
 
   g.blank_slate  do
 	  "没有记录"
@@ -9,10 +9,6 @@
   g.column :name => '商品名称', :attribute => 'product_id', detach_with_id: :product_filter,
     custom_filter: Product.accessible_by(current_ability).map{|p| [p.product_name, p.id]} do |serial|
     serial.product.product_name
-  end
-
-  g.column :name => '医生', :attribute => 'store_assistant_id', filter: false do |serial|
-    Rumoji.decode(StoreAssistant.find(serial.store_assistant_id).name || "") if serial.store_assistant_id
   end
 
   g.column :name => '扫码用户', :attribute => 'user_id', filter: false do |serial|

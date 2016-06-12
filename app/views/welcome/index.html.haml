@@ -1,63 +1,51 @@
 
-
-%section.content-header
-  %h1 下午好，admin
-%section.content
+- if current_user && (current_user.state == "否决")
   .row
-    .col-md-3.col-sm-6.col-xs-12
-      .info-box
-        %span{ class: "info-box-icon bg-aqua"}
-          %i{ class: "fa fa-files-o"}
-        .info-box-content
-          %span{ class: "info-box-text"}
-            = link_to '二维码管理', serials_path
-          %span{ class: "info-box-text" }
-            258
-    .col-md-3.col-sm-6.col-xs-12
-      .info-box
-        %span{ class: "info-box-icon bg-yellow"}
-          %i{ class: "fa fa-envelope-o"}
-        .info-box-content
-          %span{ class: "info-box-text"}
-            = link_to '会员管理', users_path
-          %span{ class: "info-box-text" }
-            442
-    .col-md-3.col-sm-6.col-xs-12
-      .info-box
-        %span{ class: "info-box-icon bg-green"}
-          %i{ class: "fa fa-flag-o"}
-        .info-box-content
-          %span{ class: "info-box-text"}
-            = link_to '商品管理', products_path
-          %span{ class: "info-box-text" }
-            4
-    .col-md-3.col-sm-6.col-xs-12
-      .info-box
-        %span{ class: "info-box-icon bg-red"}
-          %i{ class: "fa fa-files-o"}
-        .info-box-content
-          %span{ class: "info-box-text"}
-            订单统计
-          %span{ class: "info-box-text" }
-            2
-
-
-
-  - if current_user && (current_user.state == "否决")
+    .col-sm-6.col-sm-offset-3
+      .panel.panel-danger
+        .panel-heading
+          %h4.panel-title.text-center 提示
+        .panel-body
+          %p.text-center
+            您的账户已被禁用
+- elsif current_user
+  %section.content-header
+    %h1 下午好，admin
+  %section.content
     .row
-      .col-sm-6.col-sm-offset-3
-        .panel.panel-danger
-          .panel-heading
-            %h4.panel-title.text-center 提示
-          .panel-body
-            %p.text-center
-              您的账户已被禁用
-  - elsif current_user
-    .row
-      .col-sm-6.col-sm-offset-3
-        .panel.panel-success
-          .panel-heading
-            %h4.panel-title.text-center 提示
-          .panel-body
-            %p.text-center
-              欢迎使用斑码二维码管理系统
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          %span{ class: "info-box-icon bg-aqua"}
+            %i{ class: "fa fa-files-o"}
+          .info-box-content
+            %span{ class: "info-box-text"}
+              = link_to '二维码管理', serials_path
+            %span{ class: "info-box-text" }
+              = link_to Serial.all.count, serials_path
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          %span{ class: "info-box-icon bg-yellow"}
+            %i{ class: "fa fa-envelope-o"}
+          .info-box-content
+            %span{ class: "info-box-text"}
+              = link_to '会员管理', users_path
+            %span{ class: "info-box-text" }
+              = link_to User.all.count, users_path
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          %span{ class: "info-box-icon bg-green"}
+            %i{ class: "fa fa-flag-o"}
+          .info-box-content
+            %span{ class: "info-box-text"}
+              = link_to '商品管理', products_path
+            %span{ class: "info-box-text" }
+              = link_to Product.all.count, users_path
+      .col-md-3.col-sm-6.col-xs-12
+        .info-box
+          %span{ class: "info-box-icon bg-red"}
+            %i{ class: "fa fa-files-o"}
+          .info-box-content
+            %span{ class: "info-box-text"}
+              = link_to '商家管理', shop_stores_path
+            %span{ class: "info-box-text" }
+              = link_to ShopStore.all.count, users_path

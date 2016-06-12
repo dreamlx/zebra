@@ -8,7 +8,7 @@ class SerialsController < ApplicationController
       Product.where(admin_id: current_user.id),
       name: 'products_list_grid')
     @serials_grid = initialize_grid(
-      Serial,
+      Serial.all,
       name: 'all_serials_list_grid')
   end
 
@@ -79,6 +79,54 @@ class SerialsController < ApplicationController
     end
   end
 
+  def single_create
+    if params[:serials] && params[:serials][:selected]
+      folder = "public/img/qrcode"
+      input_filenames = []
+      @serials = Serial.where(id: params[:serials][:selected])
+      @serials.each do |file|
+        input_filenames.push(file.id.to_s + '.png')
+      end
+
+      #Attachment name
+      filename = '二维码_'+Time.now.strftime('%Y%m%d').to_s+'_'+Time.now.to_i.to_s+'.zip'
+      temp_file = Tempfile.new(filename)
+
+      begin
+        #This is the tricky part
+        #Initialize the temp file as a zip file
+        Zip::OutputStream.open(temp_file) { |zos| }
+
+        #Add files to the zip file as usual
+        Zip::File.open(temp_file.path, Zip::File::CREATE) do |zipfile|
+          input_filenames.each do |filename|
+            # Two arguments:
+            # - The name of the file as it will appear in the archive
+            # - The original file, including the path to find it
+            zipfile.add(filename, folder + '/' + filename)
+          end
+          # zipfile.get_output_stream("myFile") { |os| os.write "myFile contains just this" }
+        end
+
+        #Read the binary data from the file
+        zip_data = File.read(temp_file.path)
+
+        #Send the data to the browser as an attachment
+        #We do not send the file directly because it will
+        #get deleted before rails actually starts sending it
+        send_data(zip_data, :type => 'application/zip', :filename => filename)
+      ensure
+        #Close and delete the temp file
+        temp_file.close
+        temp_file.unlink
+      end
+    else
+      @product = Product.find(params[:product])
+      @serials_grid = initialize_grid(Serial.where(product_id: @product.id),
+                      name:'serials')
+    end
+  end
+
   def create_multiple
     if params[:product][:how_many].to_i > 100
       params[:product][:how_many] = 100
@@ -92,6 +140,16 @@ class SerialsController < ApplicationController
     end
     # redirect_to @product
     redirect_to multi_create_serials_path(product: @product)
+  end
+
+  def create_single
+    @product = Product.find(params[:id])
+    index = (Serial.last.id if Serial.any?) || 0
+    index = index + 1
+    @serial = Serial.create(product_id: params[:product][:product_id], store_assistant_id: params[:product][:serial][:store_assistants], serial_no: Digest::MD5.hexdigest(current_user.id.to_s).upcase + '-' + Time.now.to_i.to_s + '-' + index.to_s)
+    qr_code(@serial.id)
+    # redirect_to @product
+    redirect_to single_create_serials_path(product: @product)
   end
 
   def edit
@@ -192,6 +250,6 @@ class SerialsController < ApplicationController
 
   private
    def serial_params
-    params.require(:serial).permit(:open_id, :phone, :user_id, :serial_no, :product_id, :state)
+    params.require(:serial).permit(:open_id, :phone, :user_id, :serial_no, :product_id, :state, :store_assistant_id)
    end
 end

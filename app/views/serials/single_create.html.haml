@@ -1,0 +1,21 @@
+.row
+  .col-md-3
+    = form_for @product, url: create_single_serial_path(@product) do |f|
+      .input-group
+        = f.hidden_field :product_id, :value => @product.id
+        = f.fields_for (:serial) do |r|
+          = r.select :store_assistants, StoreAssistant.all.map{ |c| [c.name, c.id] }
+          %span.input-group-btn
+            = f.submit "提交", class: "btn btn-success"
+  .col-md-9
+.row
+  = form_for '#', method:  :get do
+    .col-md-12
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title.text-center 产品二维码
+        %div
+          = render :partial => 'serials/serials_grid'
+          = render_grid(@serials_grid)
+      %div
+        %button.btn.btn-danger{:type => "submit"} 下载二维码

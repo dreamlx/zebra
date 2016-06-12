@@ -1,0 +1,37 @@
+<%= define_grid(@products_grid) do |g|
+
+  g.blank_slate  do
+	  "没有记录"
+	end
+
+  g.column :name => '#', :attribute => 'id', filter: false
+
+  g.column :name => Product.human_attribute_name(:product_name), :attribute => 'product_name', detach_with_id: :name_filter
+
+  g.column :name => Product.human_attribute_name(:score), :attribute => 'score', filter: false
+
+  g.column :name => Product.human_attribute_name(:product_logo), :attribute => 'product_logo', filter: false do |product|
+    image_tag product.product_logo.thumb
+  end
+
+  g.column :name => Product.human_attribute_name(:product_image), :attribute => 'product_image', filter: false do |product|
+    image_tag product.product_image.thumb
+  end
+
+  g.column :name => Product.human_attribute_name(:created_at), :attribute => 'created_at', filter: false do |product|
+    product.created_at.strftime('%F')
+  end
+
+  g.column :name => Product.human_attribute_name(:updated_at), :attribute => 'updated_at', filter: false do |product|
+    product.updated_at.strftime('%F')
+  end
+
+  g.column :name => '操作'  do |product|
+    buffer =
+    if can? :create_multiple, Product
+      link_to '生成二维码', single_create_serials_path(product: product)
+    end
+    raw buffer
+  end
+
+end -%>
