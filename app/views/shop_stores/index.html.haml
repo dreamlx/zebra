@@ -32,9 +32,9 @@
                   %td= shop_store.address
                   %td
                     = link_to t('show'), shop_store, class: 'btn btn-info'
-                    /|
+                    
                     = link_to t('edit'), edit_shop_store_path(shop_store), class: 'btn btn-warning'
-                    /|
+                    
                     = link_to t('destroy'), shop_store, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
 
           %br

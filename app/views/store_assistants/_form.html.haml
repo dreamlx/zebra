@@ -9,7 +9,12 @@
     = f.label :name
     = f.text_field :name, class: 'form-control'
   .form-group
+    = f.label :score
+    = f.text_field :score, class: 'form-control'
+  .form-group
     = f.label :cell
     = f.text_field :cell, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit I18n.t('save'), class: 'btn btn-primary'
+
+

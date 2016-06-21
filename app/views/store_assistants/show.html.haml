@@ -4,3 +4,25 @@
 = link_to 'Edit', edit_store_assistant_path(@store_assistant)
 \|
 = link_to 'Back', store_assistants_path
+
+
+.content
+  .row
+    .box.box-primary
+      .box-header.with-border
+        %h1
+          = t(:show_store_assistant)
+      .box-body
+        %p
+          %label= StoreAssistant.human_attribute_name(:name) + ":"
+          = @store_assistant.name
+        %p
+          %label= StoreAssistant.human_attribute_name(:score)+ ":"
+          = @store_assistant.score
+        %p
+          %label= StoreAssistant.human_attribute_name(:cell)+ ":"
+          = @store_assistant.cell
+      .box-footer
+        = link_to I18n.t('edit'), edit_store_assistant_path(@store_assistant), class: 'btn btn-primary'
+        
+        = link_to I18n.t('back'), store_assistants_path, class: 'btn btn-info'

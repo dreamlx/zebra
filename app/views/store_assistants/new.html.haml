@@ -1,5 +1,15 @@
-%h1 New store_assistant
+.content
+  .row
+    .box.box-primary
+      .box-header.with-border
+        %h1
+          = t(:new_store_assistant)
+      .box-body
+        = render 'form'
+      .box-footer
+        = link_to t(:back), store_assistants_path
 
-= render 'form'
 
-= link_to 'Back', store_assistants_path
+
+
+

@@ -91,6 +91,7 @@ zh-CN:
       store_assistant:
         name: 姓名
         code: 编码
+        cell: 电话
         birthday: 生日
         score: 积分
   new_user: 新建会员
@@ -130,4 +131,7 @@ zh-CN:
   show_shop_store: 商家详情
   thirdparty_list: 第三方认证机构列表
   edit_password: 密码修改
-  new_store_assistant: 新建
+  new_store_assistant: 添加医生
+  edit_store_assistant: 编辑医生
+  show_store_assistant: 医生详情
+
