@@ -16,7 +16,8 @@
       .col-md-3.col-sm-6.col-xs-12
         .info-box
           %span{ class: "info-box-icon bg-aqua"}
-            %i{ class: "fa fa-files-o"}
+            %a{ href: serials_path }
+              %i{ class: "fa fa-files-o"}
           .info-box-content
             %span{ class: "info-box-text"}
               = link_to '二维码管理', serials_path
@@ -25,7 +26,8 @@
       .col-md-3.col-sm-6.col-xs-12
         .info-box
           %span{ class: "info-box-icon bg-yellow"}
-            %i{ class: "fa fa-envelope-o"}
+            %a{ href: users_path }
+              %i{ class: "fa fa-envelope-o"}
           .info-box-content
             %span{ class: "info-box-text"}
               = link_to '会员管理', users_path
@@ -34,7 +36,8 @@
       .col-md-3.col-sm-6.col-xs-12
         .info-box
           %span{ class: "info-box-icon bg-green"}
-            %i{ class: "fa fa-flag-o"}
+            %a{ href: products_path }
+              %i{ class: "fa fa-flag-o"}
           .info-box-content
             %span{ class: "info-box-text"}
               = link_to '商品管理', products_path
@@ -43,7 +46,8 @@
       .col-md-3.col-sm-6.col-xs-12
         .info-box
           %span{ class: "info-box-icon bg-red"}
-            %i{ class: "fa fa-files-o"}
+            %a{ href: shop_stores_path }
+              %i{ class: "fa fa-files-o"}
           .info-box-content
             %span{ class: "info-box-text"}
               = link_to '商家管理', shop_stores_path

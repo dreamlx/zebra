@@ -406,3 +406,5 @@ body{
     right: 0;
     position: absolute;
 }
+
+.info-box-icon a:hover{ color:white; }
