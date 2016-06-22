@@ -26,3 +26,15 @@
         = link_to I18n.t('edit'), edit_store_assistant_path(@store_assistant), class: 'btn btn-primary'
         
         = link_to I18n.t('back'), store_assistants_path, class: 'btn btn-info'
+
+.row
+  = form_for '#', method:  :get do
+    .col-md-12
+      .panel.panel-primary
+        .panel-heading
+          %h4.panel-title.text-center 产品二维码
+        %div
+          = render :partial => 'serials/serials_grid'
+          = render_grid(@serials_grid)
+      %div
+        %button.btn.btn-danger{:type => "submit"} 下载二维码

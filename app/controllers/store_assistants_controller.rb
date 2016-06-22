@@ -10,6 +10,9 @@ class StoreAssistantsController < ApplicationController
   # GET /store_assistants/1
   # GET /store_assistants/1.json
   def show
+    @store_assistant = StoreAssistant.find(params[:id])
+    @serials_grid = initialize_grid(Serial.where(user_id: @store_assistant.id),
+                      name:'serials')
   end
 
   # GET /store_assistants/new

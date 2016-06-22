@@ -1,13 +1,16 @@
-.row
-  .col-md-3
-    = form_for @product, url: create_single_serial_path(@product) do |f|
-      .input-group
+.box.box-primary
+  .box-header.with-border
+    %h3.box-title
+      选择医生
+  = form_for @product, url: create_single_serial_path(@product) do |f|
+    .box-body
+      .form-group
         = f.hidden_field :product_id, :value => @product.id
+      .form-group
         = f.fields_for (:serial) do |r|
           = r.select :store_assistants, StoreAssistant.all.map{ |c| [c.name, c.id] }
-          %span.input-group-btn
-            = f.submit "提交", class: "btn btn-success"
-  .col-md-9
+        
+        = f.submit "提交", class: "btn btn-success"      
 .row
   = form_for '#', method:  :get do
     .col-md-12

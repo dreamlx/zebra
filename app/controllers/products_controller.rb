@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'zip'
 class ProductsController < ApplicationController
-  #load_and_authorize_resource
+  load_and_authorize_resource
 
   def index
     @products = Product.where(:admin_id => current_user.id)
