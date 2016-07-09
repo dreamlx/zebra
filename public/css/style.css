@@ -1,0 +1,39 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, input, textarea, button, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;outline:0;font-size:100%;}
+h1,h2,h3,h4,h5,h6 {font-weight:normal;}
+img {border:none;}
+table {border-collapse:collapse; border-spacing:0;}
+ol, ul {list-style:none;}
+body {color:#5f5c5c;}
+.fl {float:left;}
+.fr {float:right;}
+.clx:before, .clx:after {display:table; line-height:0; content:"";}
+.clx:after {clear:both;}
+.hide {display:none;}
+
+.logo {width:100%; padding:5px 0; text-align:center;}
+.bd {margin:0 10px; position:relative; z-index:1;}
+.bd img {position:relative; z-index:2; width:100%;}
+.bd-func {background:rgba(255,255,255,.8); width:100%; padding:20px 0; position:absolute; bottom:0; left:0; border-top-left-radius:8px; border-top-right-radius:8px; z-index:3;}
+.bd-func-login {text-align:center; color:#666;}
+.ft {height:60px; position:relative; margin:0 10px; position:relative; z-index:1;}
+.arrow {width:100px; height:60px; margin:auto; background:url(../images/arrow.png) center center no-repeat; background-size:54px;}
+.back {position:absolute; left:0; top:0; width:60px; height:60px; background:url(../images/back.png) center center no-repeat; background-size:20px;}
+.login-pop {width:100%; height:100%; position:fixed; z-index:5; top:0; left:0; background:rgba(255,255,255,.8);}
+.login-bd {width:320px; height:200px; position:absolute; top:50%; left:50%; margin:-100px 0 0 -160px;}
+.inputa {border:1px solid rgba(0,0,0,.2); background:#FFF; border-radius:8px; height:36px; padding:6px 0; margin-bottom:25px;}
+.input-label {width:50px; height:36px; border-right:1px solid #847b75; background:url(../images/user.png) center center no-repeat; background-size:33px; float:left;}
+.input-box {margin-left:51px; padding:6px 20px; height:24px;}
+.input-box input {width:100%; line-height:24px;}
+.inputb {margin-bottom:25px; height:50px;}
+.decode {width:138px; height:24px; float:left; border:1px solid rgba(0,0,0,.2); padding:12px 20px; background:#FFF; border-radius:8px;}
+.decode input {width:100%; line-height:24px;}
+.getcode {margin-left:180px; text-align:center; padding:13px; line-height:24px;}
+.get span {padding:0 5px 5px; border-bottom:1px solid #7c7767;}
+.reget {color:#999;}
+.btn button {width:100%; line-height:48px; border:1px solid rgba(0,0,0,.2); border-radius:8px; background:#FFF;}
+.bd-func-shop {overflow:hidden;}
+.shop-input {width:50%; float:left; border-right:1px solid #6e6969; text-align:center; font-size:14px;}
+.shop-input input {display:block; width:70%; margin:auto; border:1px solid rgba(0,0,0,.2); background:#FFF; border-radius:4px; height:24px; line-height:24px; padding:5px 8px; margin-top:5px;}
+.shop-btn {margin-left:51%;}
+.shop-btn button {width:100%; height:55px; display:block; background:transparent; text-align:center;}
+.shop-ok {width:320px; text-align:center; padding:20px 0; line-height:32px; font-size:18px; background:rgba(255,255,255,.9); border-radius:8px; position:absolute; top:50%; left:50%; margin:-120px 0 0 -160px; z-index:3;}
