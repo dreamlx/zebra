@@ -93,5 +93,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show], defaults: {format: :json} do
       # get :send_code, on: :collection, defaults: {format: :json}
     end
+    resources :serials, only: [:show, :confirm_action], defaults: {format: :json} do
+      post :confirm_action, on: :collection
+    end
   end
 end

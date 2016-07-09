@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612054203) do
+ActiveRecord::Schema.define(version: 20160709052637) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -35,6 +35,16 @@ ActiveRecord::Schema.define(version: 20160612054203) do
     t.datetime "updated_at",                  null: false
     t.string   "extention_value", limit: 255
   end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "shop_store_id", limit: 4
+    t.integer  "serial_id",     limit: 4
+    t.date     "order_date"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "orders", ["shop_store_id"], name: "index_orders_on_shop_store_id", using: :btree
 
   create_table "prizes", force: :cascade do |t|
     t.string   "city",                  limit: 255
