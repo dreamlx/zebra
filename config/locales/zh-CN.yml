@@ -9,6 +9,7 @@ zh-CN:
       extention: 商品属性
       thirdparty: 第三方认证机构
       store_assistant: 分销渠道
+      order: 订单
     attributes:
       admin:
         name: 公司名称
@@ -32,7 +33,10 @@ zh-CN:
         code: 用户编码
         memo: 用户说明
         type: 用户类型
-
+      order:
+        shop_store: 销售渠道
+        product: 产品
+        order_date: 购买日期
       scanlog:
         user: 会员
         serial: 商品
@@ -138,3 +142,4 @@ zh-CN:
   new_store_assistant: 添加医生
   edit_store_assistant: 编辑医生
   show_store_assistant: 医生详情
+  order_list: 订单列表

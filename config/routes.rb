@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       get :unable, on: :member
     end
   end
+  resources :orders 
   resources :thirdparties
   resources :prizes
   get     'login'   => 'sessions#new'

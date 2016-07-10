@@ -7,21 +7,7 @@
         %h4#myModalLabel.modal-title.text-center 产品扫码-预览
       .modal-body{:style => "padding-left: 0px;padding-right: 0px;padding-top: 0px;padding-bottom: 0px;"}
         .page1{:style => "background-color: #1c1403; overflow: hidden;"}
-          #divHeader.aboveBlock.fl.PB5.clearfix
-            %img.bg{:src => "/img/page1/1.png"}/
-            .divChange
-              .stamp
-                %img#stamp{:src => "/img/page1/page-1_tuzhang.png"}/
-              .divlogo
-                %img#divLogo{:src => "#{product.product_logo}"}/
-              .divTitle
-                %span 亲爱的用户:
-                %span#msg.msg
-                  经过专业扫码验证，您购买的此款#{product.product_name}是品牌正品。请放心使用。
-          .midBlock.fl.clearfix
-            %input{:placeholder => "请输入您的手机号码", :type => "tel"}/
-            %a.fr.enter
-              %span 获取验证码
+
           /
             <div class="underBlock fl">
             <img id="imgIntro"/>

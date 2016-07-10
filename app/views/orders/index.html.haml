@@ -1,0 +1,29 @@
+%section.content-header
+  %h1
+    =t(:order_list)
+%section.content
+  .row
+    .col-md-12
+      .box
+        .box-body
+          %table.table.table-bordered
+            %thead
+              %tr
+                %th
+                  =Order.human_attribute_name(:shop_store)
+                %th
+                  =Order.human_attribute_name(:product)
+                %th
+                  =Order.human_attribute_name(:order_date)
+                %th
+
+
+            %tbody
+              - @orders.each do |order|
+                %tr
+                  %td= ShopStore.find(order.shop_store_id).title
+                  %td= Serial.find(order.serial_id).product.product_name
+                  %td= order.order_date
+                  %td
+                    = link_to t('show'), order, class: 'btn btn-info'
+          %br
