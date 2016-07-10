@@ -14,10 +14,10 @@ class Api::SerialsController < Api::BaseController
         serial_id: serial.id,
         order_date: Time.now)
       if @order.save
-        render json: {:return => "true"}, status: 200
+        render json: {:result => true}, status: 200
       end
     else
-      render json: {:return => "false"}, status: 422
+      render json: {:result => false}, status: 422
     end
   end
 
