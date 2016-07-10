@@ -67,10 +67,12 @@
             alert('请输入优惠代码');
         } else {
             $.post('http://zebra.easybird.cn/api/serials/confirm_action', {serial_no:serial_no, decode: code}, function(json) {
-                if (json) {
+                var result = json.result;
+                if (result) {
                     $('.shop-ok').removeClass('hide');
                 } else {
                     alert('优惠代码有误');
+                    $('.shop-ok').addClass('hide');
                 }
             });
         }
