@@ -26,4 +26,6 @@
                   %td= order.order_date
                   %td
                     = link_to t('show'), order, class: 'btn btn-info'
+                    /|
+                    = link_to t('destroy'), order, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
           %br
