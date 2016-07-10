@@ -17,7 +17,7 @@ class Api::SerialsController < Api::BaseController
         render json: {:result => true}, status: 200
       end
     else
-      render json: {:result => false}, status: 422
+      render json: {:result => false}, status: 200
     end
   end
 
