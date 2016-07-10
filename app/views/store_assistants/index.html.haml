@@ -1,5 +1,5 @@
 %section.content-header
-  %h1 
+  %h1
     =t(:store_assistant)
 %section.content
   .row
@@ -9,24 +9,33 @@
           %table.table.table-bordered
             %thead
               %tr
-                %th 
+                %th
                   =StoreAssistant.human_attribute_name(:name)
-                %th 
+                %th
+                  =StoreAssistant.human_attribute_name(:city)
+                %th
+                  =StoreAssistant.human_attribute_name(:store)
+                %th
+                  =StoreAssistant.human_attribute_name(:department)
+                %th
+                  =StoreAssistant.human_attribute_name(:level)
+                %th
                   =StoreAssistant.human_attribute_name(:cell)
-                %th 
-                  =StoreAssistant.human_attribute_name(:score)
                 %th
             %tbody
               - @store_assistants.each do |store_assistant|
                 %tr
                   %td= store_assistant.name
+                  %td= store_assistant.city
+                  %td= store_assistant.store
+                  %td= store_assistant.department
+                  %td= store_assistant.level
                   %td= store_assistant.cell
-                  %td= store_assistant.score
                   %td
                     = link_to t('show'), store_assistant, class: 'btn btn-info'
                     /|
                     = link_to t('edit'), edit_store_assistant_path(store_assistant), class: 'btn btn-warning'
                     /|
-                    = link_to t('destroy'), store_assistant, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'                
+                    = link_to t('destroy'), store_assistant, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'
         .box-footer
           = link_to t(:new_store_assistant), new_store_assistant_path, class: 'btn btn-primary'

@@ -94,6 +94,10 @@ zh-CN:
         cell: 电话
         birthday: 生日
         score: 积分
+        level: 职级
+        city: 城市
+        store: 医院
+        department: 科室
   new_user: 新建会员
   user_list: 会员列表
   new_prize: 新建奖品
@@ -134,4 +138,3 @@ zh-CN:
   new_store_assistant: 添加医生
   edit_store_assistant: 编辑医生
   show_store_assistant: 医生详情
-

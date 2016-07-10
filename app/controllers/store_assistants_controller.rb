@@ -72,6 +72,7 @@ class StoreAssistantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_assistant_params
-      params.require(:store_assistant).permit(:openid, :cell, :name, :score, :image, :birthday, :level)
+      params.require(:store_assistant).permit(:openid, :cell, :name, :score, :image, :birthday,
+                                              :level, :city, :store, :department)
     end
 end
