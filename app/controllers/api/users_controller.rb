@@ -9,7 +9,7 @@ class Api::UsersController < Api::BaseController
     #   return api_error(status: 422)
     # end
 
-    @user = User.new(open_id: nil, cell: params[:user][:cell])
+    @user = User.new(openid: nil, cell: params[:user][:cell])
     if @user.save
       render json: {:result => true}, status: 201
     else
