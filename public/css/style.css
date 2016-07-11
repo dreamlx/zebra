@@ -28,8 +28,7 @@ body {color:#5f5c5c;}
 .decode {width:138px; height:24px; float:left; border:1px solid rgba(0,0,0,.2); padding:12px 20px; background:#FFF; border-radius:8px;}
 .decode input {width:100%; line-height:24px;}
 .getcode {margin-left:180px; text-align:center; padding:13px; line-height:24px;}
-.get span {padding:0 5px 5px; border-bottom:1px solid #7c7767;}
-.reget {color:#999;}
+.get {background:transparent; padding:0 5px 5px; border-bottom:1px solid #7c7767;}
 .btn button {width:100%; line-height:48px; border:1px solid rgba(0,0,0,.2); border-radius:8px; background:#FFF;}
 .bd-func-shop {overflow:hidden;}
 .shop-input {width:50%; float:left; border-right:1px solid #6e6969; text-align:center; font-size:14px;}

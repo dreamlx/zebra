@@ -13,7 +13,7 @@ class Api::UsersController < Api::BaseController
     if @user.save
       render json: {:result => true}, status: 201
     else
-      return api_error(status: 422)
+      render json: {:result => false}, status: 201
     end
   end
 
@@ -36,6 +36,20 @@ class Api::UsersController < Api::BaseController
     end
   ensure
     clean_tempfile
+  end
+
+  def send_code
+    # create a random code, not unique
+    code = rand(1000..9999)
+    cell = params[:cell]
+    # if succeed to send code, save the cell and code in table of cell_codes
+    if User.send_code(cell, code)
+      CellCode.where(cell: cell).delete_all
+      CellCode.create(cell: cell, code: code)
+      render json: {:result => true}, status: 200
+    else
+      return api_error(status: 422)
+    end
   end
 
 

@@ -18,8 +18,8 @@
             <p>欲了解更多优惠信息，可关注<br>“妈妈校园”微信公众平台</p>
         </div>
         <div class="bd-func">
-            <div class="bd-func-login hide">登录/注册</div>
-            <div class="bd-func-shop">
+            <div class="bd-func-login">登录/注册</div>
+            <div class="bd-func-shop hide">
                 <div class="shop-input">商家输入优惠代码：<input type="text" id="code"></div>
                 <div class="shop-btn"><button id="postCode">确认</button></div>
             </div>
@@ -34,17 +34,16 @@
         <div class="login-bd">
             <div class="inputa">
                 <div class="input-label"></div>
-                <div class="input-box"><input type="phone" placeholder="请输入手机号码"></div>
+                <div class="input-box"><input type="phone" name="phone" placeholder="请输入手机号码"></div>
             </div>
             <div class="inputb">
                 <div class="decode"><input type="phone"></div>
                 <div class="getcode">
-                    <div class="get"><span>获取验证码</span></div>
-                    <div class="reget">秒后重新获取</div>
+                    <input type="button" value="获取验证码" name="vcode" class="get">
                 </div>
             </div>
             <div class="btn">
-                <button>登录</button>
+                <button id="login">登录</button>
             </div>
         </div>
     </div>
@@ -53,15 +52,17 @@
 ;(function($) {
     var serial_no = GetQueryString('serial_no');
     if (!serial_no) {
-        alert('产品参数错误，请重试');
-        return false;
+        console.log('产品参数错误，请重试');
     } else {
         $.getJSON('http://zebra.easybird.cn/serials/build_serial', {serial_no: serial_no}, function(json) {
             var primg = json.product_image.product_image.url;
             $('#productImage').attr('src', primg);
         });
     }
-    $('#postCode').click(function() {
+    $('.bd-func-login').on('click', function() {
+        $('.login-pop').removeClass('hide');
+    });
+    $('#postCode').on('click', function() {
         var code = $('#code').val();
         if (!code) {
             alert('请输入优惠代码');
@@ -77,12 +78,166 @@
             });
         }
     });
-    function GetQueryString(name) {
-         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
-         var r = window.location.search.substr(1).match(reg);
-         if(r!=null)return  unescape(r[2]); return null;
-     }
+    //获取验证码
+    $('.get').on('click', function() {
+        sendCode($('.get'));
+    });
+    v = getCookieValue('secondsremained');//获取cookie值
+    if(v>0){
+        settime($(".get"));//开始倒计时
+    }
+    //验证登录
+    var user = getCookieValue('user');
+    if (!user) {
+        $('.login-pop').addClass('hide');
+        $('.bd-func-login').removeClass('hide');
+        $('.bd-func-shop').addClass('hide');
+    } else {
+        $('.login-pop').addClass('hide');
+        $('.bd-func-login').addClass('hide');
+        $('.bd-func-shop').removeClass('hide');
+    }
+    //登录
+    $('#login').on('click', function() {
+        var phone = $('input[name="phone"]').val(),
+            vcode = $('input[name="vcode"]').val();
+        if (isPhoneNum(phone)) {
+            if (!vcode) {
+                alert('请输入短信验证码');
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    url: 'http://zebra.easybird.cn/api/users',
+                    data: {cell: phone, code: vcode},
+                    success: function(json) {
+                        if (!json.result) {
+                            alert('登录失败，请重试');
+                        } else {
+                            addCookie('user', phone, 2592000); //cookie保存30天
+                            delCookie('secondsremained');
+                            $('.login-pop').addClass('hide');
+                            $('.bd-func-login').addClass('hide');
+                            $('.bd-func-shop').removeClass('hide');
+                        }
+                    }
+                });
+            }
+        }
+    });
 })(Zepto)
+//发送验证码
+function sendCode(obj){
+    var phonenum = $('input[name="phone"]').val();
+    var result = isPhoneNum(phonenum);
+    if(result){
+        doPostBack('http://zebra.easybird.cn/api/users/send_code',backFunc1,{cell:phonenum});
+        addCookie("secondsremained",60,60);//添加cookie记录,有效时间60s
+        settime(obj);//开始倒计时
+    }
+}
+//将手机利用ajax提交到后台的发短信接口
+function doPostBack(url,backFunc,queryParam) {
+    $.ajax({
+        async : false,
+        cache : false,
+        type : 'POST',
+        url : url,// 请求的action路径
+        data:queryParam,
+        success : backFunc
+    });
+}
+function backFunc1(data){
+    var d = data;
+    if(!d.result){
+        alert('获取验证码出错');
+    }else{
+        alert('验证码已发送至您手机，请尽快输入');
+    }
+}
+//开始倒计时
+var countdown;
+function settime(obj) {
+    countdown=getCookieValue("secondsremained");
+    if (countdown == 0) {
+        obj.removeAttr("disabled");
+        obj.val("获取验证码");
+        return;
+    } else {
+        obj.attr("disabled", true);
+        obj.val('重新发送(' + countdown + ')');
+        countdown--;
+        editCookie("secondsremained",countdown,countdown+1);
+    }
+    setTimeout(function() { settime(obj) },1000) //每1000毫秒执行一次
+}
+//校验手机号是否合法
+function isPhoneNum(phonenum){
+    var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+    if(!myreg.test(phonenum)){
+        alert('请输入有效的手机号码！');
+        return false;
+    }else{
+        return true;
+    }
+}
+//发送验证码时添加cookie
+function addCookie(name,value,expiresHours){
+    var cookieString=name+"="+escape(value);
+    //判断是否设置过期时间,0代表关闭浏览器时失效
+    if(expiresHours>0){
+        var date=new Date();
+        date.setTime(date.getTime()+expiresHours*1000);
+        cookieString=cookieString+";expires=" + date.toUTCString();
+    }
+        document.cookie=cookieString;
+}
+//修改cookie的值
+function editCookie(name,value,expiresHours){
+    var cookieString=name+"="+escape(value);
+    if(expiresHours>0){
+      var date=new Date();
+      date.setTime(date.getTime()+expiresHours*1000); //单位是毫秒
+      cookieString=cookieString+";expires=" + date.toGMTString();
+    }
+      document.cookie=cookieString;
+}
+//根据名字获取cookie的值
+function getCookieValue(name){
+      var strCookie=document.cookie;
+      var arrCookie=strCookie.split("; ");
+      for(var i=0;i<arrCookie.length;i++){
+        var arr=arrCookie[i].split("=");
+        if(arr[0]==name){
+          return unescape(arr[1]);
+          break;
+        }else{
+             return "";
+             break;
+         }
+      }
+}
+//删除Cookie
+function delCookie(name){
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null)
+    document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+function getCookie(name){
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+    if(arr=document.cookie.match(reg))
+    return unescape(arr[2]);
+    else
+    return null;
+}
+//获取URL中的参数
+function GetQueryString(name) {
+     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+     var r = window.location.search.substr(1).match(reg);
+     if(r!=null)return  unescape(r[2]); return null;
+}
 </script>
 </body>
 </html>
