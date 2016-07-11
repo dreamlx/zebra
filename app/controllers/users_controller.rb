@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   load_and_authorize_resource
   def index
     @users = User.all
-    @users_grid = initialize_grid(
-      User.where(useradminrels: {admin_id: current_user.id}).joins(:useradminrels),
+    @users_grid = initialize_grid(User,
+      # User.where(useradminrels: {admin_id: current_user.id}).joins(:useradminrels),
       name: 'users_grid')
   end
 
