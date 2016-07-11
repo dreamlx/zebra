@@ -92,7 +92,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :users, only: [:create, :update, :show, :send_code], defaults: {format: :json} do
-      get :send_code, on: :collection, defaults: {format: :json}
+      post :send_code, on: :collection
     end
     resources :serials, only: [:show, :confirm_action], defaults: {format: :json} do
       post :confirm_action, on: :collection
