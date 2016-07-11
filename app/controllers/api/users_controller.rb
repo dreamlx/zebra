@@ -4,14 +4,14 @@ class Api::UsersController < Api::BaseController
     return api_error(status: 422) if params[:user].nil?
 
     # verify the cell code, return if no code or not match
-    cell_code = CellCode.find_by(cell: params[:user][:cell])
-    unless cell_code && cell_code.code && (cell_code.code == params[:user][:code]) && ((cell_code.created_at + 1.hour) > DateTime.now )
-      return api_error(status: 422)
-    end
+    # cell_code = CellCode.find_by(cell: params[:user][:cell])
+    # unless cell_code && cell_code.code && (cell_code.code == params[:user][:code]) && ((cell_code.created_at + 1.hour) > DateTime.now )
+    #   return api_error(status: 422)
+    # end
 
-    @user = User.new(open_id: params[:user][:open_id], cell: params[:user][:cell])
+    @user = User.new(open_id: nil, cell: params[:user][:cell])
     if @user.save
-      render 'show', status: 201
+      render json: {:result => true}, status: 201
     else
       return api_error(status: 422)
     end
