@@ -44,7 +44,7 @@ Rails.application.routes.draw do
       get :unable, on: :member
     end
   end
-  resources :orders 
+  resources :orders
   resources :thirdparties
   resources :prizes
   get     'login'   => 'sessions#new'
@@ -91,8 +91,8 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :users, only: [:create, :update, :show], defaults: {format: :json} do
-      # get :send_code, on: :collection, defaults: {format: :json}
+    resources :users, only: [:create, :update, :show, :send_code], defaults: {format: :json} do
+      get :send_code, on: :collection, defaults: {format: :json}
     end
     resources :serials, only: [:show, :confirm_action], defaults: {format: :json} do
       post :confirm_action, on: :collection
