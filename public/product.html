@@ -109,7 +109,7 @@
                     type: 'POST',
                     dataType: 'json',
                     url: 'http://zebra.easybird.cn/api/users',
-                    data: {cell: phone, code: vcode},
+                    data: {user: {cell: phone, code: vcode}},
                     success: function(json) {
                         if (!json.result) {
                             alert('登录失败，请重试');
