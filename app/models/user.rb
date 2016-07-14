@@ -7,15 +7,17 @@ class User < ActiveRecord::Base
 
   def User.send_code(cell, code)
     # the cell must exist and more than 11 digits
-    # return false unless cell && cell.to_s.length >= 11
-    # msg         = "手机验证码：#{code}。"
-    # uri         = URI.parse("http://222.73.117.158/msg/HttpBatchSendSM")
-    # username    = Rails.application.secrets.sms_username
-    # password    = Rails.application.secrets.sms_password
-    # res         = Net::HTTP.post_form(uri, account: username, pswd: password, mobile: cell, msg: msg, needstatus: true)
-    # batch_code  = res.body.split[1]
-    # return (batch_code ? true : false)
-    return true
+    return false unless cell && cell.to_s.length >= 11
+    msg         = code.to_s
+    @var        = {}
+    @var["code"] = msg
+    uri         = URI.parse("https://api.submail.cn/message/xsend.json")
+    username    = Rails.application.secrets.sms_appid
+    password    = Rails.application.secrets.sms_signature
+    project     = Rails.application.secrets.sms_project
+    res         = Net::HTTP.post_form(uri, appid: username, to: cell, project: project, signature: password, vars: @var.to_json)
+    status      = JSON.parse(res.body)["status"]
+    return ((status == "success") ? true : false)
   end
 
   state_machine :state, :initial => :'提交' do
