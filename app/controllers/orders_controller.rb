@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  load_and_authorize_resource
   # GET /shop_stores
   # GET /shop_stores.json
   def index
