@@ -2,8 +2,8 @@ class Api::EventsController < Api::BaseController
 
   def record
     if params[:entry]
-      Event.find_or_create_by(from: params[:from],
-                              from_name: params[:from_name],
+      Event.find_or_create_by(from: params[:form],
+                              from_name: params[:form_name],
                               serial_number: params[:entry][:serial_number],
                               field_1: params[:entry][:field_1],
                               field_2: params[:entry][:field_2],
