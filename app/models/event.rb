@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
 
-  state_machine :state, :initial => :'未打印' do
+  state_machine :status, :initial => :'未打印' do
     event :print do
       transition [:'未打印'] => :'已打印'
     end
