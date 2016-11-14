@@ -1,0 +1,38 @@
+<%= render :partial => 'grid' %>
+<div class='row-fluid'>
+  <div class='col-md-12 well' style='margin-bottom: 0px;border-bottom-width: 0px;padding-bottom: 0px;border-radius: 0px;'>
+    <form class='form-horizontal row' role='form'>
+      <div class='col-xs-4'>
+        <div class='form-group'>
+          <label class='col-sm-6 control-label' for='exampleInput1'>
+            <span>姓名</span>
+          </label>
+          <div class='col-sm-6'>
+            <%= grid_filter @events_grid, :name_filter %>
+          </div>
+        </div>
+      </div>
+      <div class='col-xs-4'>
+        <div class='form-group'>
+          <label class='col-sm-6 control-label' for='exampleInput2'>
+            <span>手机</span>
+          </label>
+          <div class='col-sm-6'>
+            <%= grid_filter @events_grid, :cell_filter %>
+          </div>
+        </div>
+      </div>
+      <div class='col-xs-4'>
+        <div class='external-buttons'>
+          <button class='btn btn-primary wg-external-submit-button' data-grid-name='events_grid'>查询</button>
+          <%= link_to t(:print_event), 'print_event_path', class: "btn btn-danger" %>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class='row-fluid'>
+    <div class='col-md-12' style='padding-left: 0px;padding-right: 0px;'>
+      <%= render_grid(@events_grid) %>
+    </div>
+  </div>
+</div>
