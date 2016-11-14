@@ -22,14 +22,8 @@
   g.column :name => '操作'  do |event|
     buffer =
     # if can? :create, Admin
-      link_to '打印', event_path(event), :target => "_blank", onclick: "printpage()"
+      link_to '打印', event_path(event), :target => "_blank"
     # end
     raw buffer
   end
 end -%>
-<script type="text/javascript">
-  function printpage()
-    {
-    window.print()
-    }
-</script>
