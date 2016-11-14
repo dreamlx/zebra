@@ -1,0 +1,22 @@
+= render 'grid'
+.row-fluid
+  .col-md-12.well{:style => "margin-bottom: 0px;border-bottom-width: 0px;padding-bottom: 0px;border-radius: 0px;"}
+    %form.form-horizontal.row{:role => "form"}
+      .col-xs-4
+        .form-group
+          %label.col-sm-6.control-label{:for => "exampleInput1"}
+            %span= "姓名"
+          .col-sm-6
+            = grid_filter @events_grid, :name_filter
+      .col-xs-4
+        .form-group
+          %label.col-sm-6.control-label{:for => "exampleInput2"}= "手机"
+          .col-sm-6
+            = grid_filter @events_grid, :cell_filter
+      .col-xs-4
+        .external-buttons
+          %button.btn.btn-primary.wg-external-submit-button{"data-grid-name" => "events_grid"} 查询
+          = link_to t(:print_event), "print_event_path", class: "btn btn-danger"
+  .row-fluid
+    .col-md-12{:style => "padding-left: 0px;padding-right: 0px;"}
+      = render_grid(@events_grid)

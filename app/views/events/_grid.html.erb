@@ -1,0 +1,21 @@
+<%= define_grid(@events_grid) do |g|
+
+  g.blank_slate  do
+	  "没有记录"
+	end
+  # g.action_column html_check_box: false
+
+  g.column :name => '#', :attribute => 'serial_number', filter: false
+
+  g.column :name => '姓名', :attribute => 'field_1', filter: false, detach_with_id: :name_filter
+
+  g.column :name => '手机', :attribute => 'field_2', filter: false, detach_with_id: :cell_filter
+
+  g.column :name => '预产期', :attribute => 'field_8', filter: false
+
+  g.column :name => '医院', :attribute => 'field_9', filter: false
+
+  g.column :name => '兑换情况', :attribute => 'field_15', filter: false
+
+  g.column :name => '预约地点', :attribute => 'from_name', filter: false
+end -%>
