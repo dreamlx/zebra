@@ -97,5 +97,8 @@ Rails.application.routes.draw do
     resources :serials, only: [:show, :confirm_action], defaults: {format: :json} do
       post :confirm_action, on: :collection
     end
+    resources :events do
+      get :record, on: :collection
+    end
   end
 end
