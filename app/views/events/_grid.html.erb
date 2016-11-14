@@ -22,7 +22,7 @@
   g.column :name => '操作'  do |event|
     buffer =
     # if can? :create, Admin
-      link_to '打印', event_path(event), :target => "_blank"
+      link_to '打印', event_path(event), onclick: "printpage()"
     # end
     raw buffer
   end

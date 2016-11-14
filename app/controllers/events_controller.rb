@@ -11,5 +11,9 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
+    respond_to do |format|
+      format.html { render layout: false }
+    end
   end
 end
