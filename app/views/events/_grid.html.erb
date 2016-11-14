@@ -18,4 +18,12 @@
   g.column :name => '兑换情况', :attribute => 'field_15', filter: false
 
   g.column :name => '预约地点', :attribute => 'from_name', filter: false
+
+  g.column :name => '操作'  do |event|
+    buffer =
+    # if can? :create, Admin
+      link_to '打印', event_path(event)
+    # end
+    raw buffer
+  end
 end -%>

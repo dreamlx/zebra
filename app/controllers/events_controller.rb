@@ -8,4 +8,8 @@ class EventsController < ApplicationController
     @events_grid = initialize_grid(Event,
       name: 'events_grid')
   end
+
+  def show
+    @event = Event.find(params[:id])
+  end
 end
