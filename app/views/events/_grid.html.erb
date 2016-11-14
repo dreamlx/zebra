@@ -7,9 +7,9 @@
 
   g.column :name => '#', :attribute => 'serial_number', filter: false
 
-  g.column :name => '姓名', :attribute => 'field_1', filter: false, detach_with_id: :name_filter
+  g.column :name => '姓名', :attribute => 'field_1', detach_with_id: :name_filter
 
-  g.column :name => '手机', :attribute => 'field_2', filter: false, detach_with_id: :cell_filter
+  g.column :name => '手机', :attribute => 'field_2', detach_with_id: :cell_filter
 
   g.column :name => '预产期', :attribute => 'field_8', filter: false
 
