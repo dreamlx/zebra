@@ -1,17 +1,17 @@
-<h2>预约登记</h2>
-<br/>
 <span>编号：</span>
+<br/>
 <span><%= @event.serial_number %></span>
 <br/>
 <span>姓名：</span>
 <br/>
 <span><%= @event.field_1 %></span>
 <br/>
+<hr>
 <span><%= @event.field_15 %></span>
 <br/>
-<p style="font-size: 14px;">微信搜索:妈妈校园</p>
-<br/>
-<p style="font-size: 14px;">关注我们</p>
+<p style="font-size: 12px;">微信搜索:妈妈校园</p>
+<%= image_tag "/img/code.png", :style => "height: 80%; width: auto;" %>
+<p style="font-size: 12px;">关注我们</p>
 <style type="text/css">
 @media print{
   body{ background-color:#FFFFFF; background-image:none; color:#000000 }
