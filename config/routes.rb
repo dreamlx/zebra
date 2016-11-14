@@ -98,7 +98,7 @@ Rails.application.routes.draw do
       post :confirm_action, on: :collection
     end
     resources :events do
-      get :record, on: :collection
+      post :record, on: :collection
     end
   end
 end
