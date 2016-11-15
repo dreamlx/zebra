@@ -1,5 +1,5 @@
 class Api::TestsController < Api::BaseController
-
+  
   def submit
     if params[:entry]
       Test.find_or_create_by(form: params[:form],

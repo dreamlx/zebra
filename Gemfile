@@ -1,4 +1,4 @@
-source 'https://ruby.taobao.org'
+source 'https://gems.ruby-china.org/'
 
 gem 'rails', '4.2.4'
 gem 'mysql2', '0.3.20'
@@ -35,6 +35,8 @@ gem 'zip-zip'
 
 gem 'font-awesome-sass'
 gem "haml-rails"
+
+gem "chartkick"
 
 source 'https://rails-assets.org/' do
   gem 'rails-assets-bootstrap'

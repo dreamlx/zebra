@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get :deny, on: :member
   end
   resources :events
+  resources :tests
   resources :shop_stores
   resources :store_assistants
   resources :users do
