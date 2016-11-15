@@ -101,5 +101,8 @@ Rails.application.routes.draw do
     resources :events do
       post :record, on: :collection
     end
+    resources :tests do
+      post :submit, on: :collection
+    end
   end
 end
