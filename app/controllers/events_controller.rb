@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     @events = Event.all
     @events_grid = initialize_grid(Event,
       name: 'events_grid',
-      per_page: 15)
+      per_page: 12)
   end
 
   def show
