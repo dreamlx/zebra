@@ -6,7 +6,8 @@ class EventsController < ApplicationController
     # current_user = Admin.first
     @events = Event.all
     @events_grid = initialize_grid(Event,
-      name: 'events_grid')
+      name: 'events_grid',
+      per_page: 15)
   end
 
   def show
