@@ -12,12 +12,21 @@
 </head>
 <body>
   <h1>孕前妈妈小测试</h1>
-
-  <%= bar_chart Test.group(:field_1).count %>
-  <%= bar_chart Test.group(:field_6).count %>
-  <%= bar_chart Test.group(:field_7).count %>
-  <%= bar_chart Test.group(:field_8).count %>
-  <%= bar_chart Test.group(:field_9).count %>
+  </br>
+  <h3>您最想要的是男孩or女孩</h3>
+  <%= bar_chart Test.group(:field_1).count, id: "field_1-chart", width: "800px", height: "60px", colors: ["pink", "#999"], stacked: true, library: {backgroundColor: "#eee"} %>
+  </br>
+  <h3>如果有条件，您如何做月子</h3>
+  <%= bar_chart Test.group(:field_6).count, id: "field_6-chart", width: "800px", height: "60px" %>
+  </br>
+  <h3>宝宝出生后，你会选择怎么喂养</h3>
+  <%= bar_chart Test.group(:field_7).count, id: "field_7-chart", width: "800px", height: "60px" %>
+  </br>
+  <h3>您准备怎么带宝宝</h3>
+  <%= bar_chart Test.group(:field_8).count, id: "field_8-chart", width: "800px", height: "60px" %>
+  </br>
+  <h3>你认为带大一个孩子（出生到上小学前）需要花费多少钱</h3>
+  <%= bar_chart Test.group(:field_9).count, id: "field_9-chart", width: "800px", height: "60px" %>
 
 
 </body>
