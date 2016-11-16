@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     get :confirm, on: :member
     get :deny, on: :member
   end
-  resources :events
+  resources :events do
+    get :reset_count, on: :collection
+  end
   resources :tests
   resources :shop_stores
   resources :store_assistants

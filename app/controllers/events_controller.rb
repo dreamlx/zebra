@@ -12,9 +12,20 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-
+    @count = Count.first
+    @count.current_num = @count.current_num + 1
+    @count.save
     respond_to do |format|
       format.html { render layout: false }
     end
+  end
+
+  def reset_count
+    Count.create(current_num: 0) if (Count.all.count == 0)
+    @count = Count.first
+    @count.current_num = 0
+    @count.save
+
+    redirect_to events_path
   end
 end

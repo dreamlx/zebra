@@ -1,14 +1,14 @@
-<span>预约编号： <%= @event.serial_number %></span>
+<span>预约编号： <%= @count.current_num %></span>
 <br/>
 <span>姓名： <%= @event.field_1 %></span>
 <br/>
-<span>手机： <%= @event.field_2 %></span>
+<span>手机： <%= @event.field_2[0..2] + "****" + @event.field_2[7..10] %></span>
 <br/>
 <hr>
 <span><%= @event.field_15 %></span>
 <br/>
 <p style="font-size: 12px;">微信搜索:妈妈校园</p>
-<%= image_tag "./code.png", :style => "width: 120px; height: auto;" %>
+<img style="width: 120px; height: auto;" src="/images/./code.png" alt="Code">
 <p style="font-size: 12px;">关注我们</p>
 <style type="text/css">
   html{ margin: 0 auto; max-width: 200px;}
