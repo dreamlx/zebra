@@ -15,6 +15,7 @@ class EventsController < ApplicationController
     @count = Count.first
     @count.current_num = @count.current_num + 1
     @count.save
+    @event.printer
     respond_to do |format|
       format.html { render layout: false }
     end

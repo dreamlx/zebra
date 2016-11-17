@@ -19,6 +19,8 @@
 
   g.column :name => '预约地点', :attribute => 'from_name', filter: false
 
+  g.column :name => '状态', :attribute => 'status', filter: false
+
   g.column :name => '操作'  do |event|
     buffer =
     # if can? :create, Admin
