@@ -9,7 +9,13 @@ Rails.application.routes.draw do
   resources :events do
     get :reset_count, on: :collection
   end
-  resources :tests
+  resources :tests do
+    get :test2, on: :collection
+    get :test3, on: :collection
+    get :test4, on: :collection
+    get :test5, on: :collection
+    get :test6, on: :collection
+  end
   resources :shop_stores
   resources :store_assistants
   resources :users do

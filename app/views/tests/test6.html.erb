@@ -13,15 +13,15 @@
 <body>
   <div style="width: 100%; height: 100px; display: table;">
     <div style="display:table-cell; vertical-align: middle; text-align:center; font-family:SimHei; font-size:40px;">
-      您最想要的是男孩or女孩
+      你认为带大一个孩子（出生到上小学前）需要花费多少钱
     </div>
   </div>
   <div>
-    <%= pie_chart Test.group(:field_1).count, id: "field_1-chart" %>
+    <%= bar_chart Test.group(:field_9).count, id: "field_9-chart" %>
   </div>
   <div style="width: 100%; height: 100px; display: table;">
     <div style="display:table-cell; vertical-align: middle; text-align:center; font-family:SimHei; font-size:20px;">
-      <%= link_to '下一题', test2_tests_path %>
+      <%= link_to '上一题', test5_tests_path %>
     </div>
   </div>
 </body>
