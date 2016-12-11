@@ -6,7 +6,7 @@ class Api::EventsController < Api::BaseController
                               from_name: params[:form_name],
                               serial_number: params[:entry][:serial_number],
                               field_1: params[:entry][:field_1],
-                              field_2: params[:entry][:field_2],
+                              field_2: params[:entry][:field_2] if params[:entry][:field_2],
                               field_8: params[:entry][:field_8],
                               field_9: params[:entry][:field_9],
                               field_15: params[:entry][:field_15],
