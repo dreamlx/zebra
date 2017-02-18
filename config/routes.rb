@@ -113,5 +113,8 @@ Rails.application.routes.draw do
     resources :tests do
       post :submit, on: :collection
     end
+    resources :quests do
+      post :submit, on: :collection
+    end
   end
 end
