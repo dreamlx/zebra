@@ -16,6 +16,17 @@ Rails.application.routes.draw do
     get :test5, on: :collection
     get :test6, on: :collection
   end
+  resources :quests do
+    get :quest2, on: :collection
+    get :quest3, on: :collection
+    get :quest4, on: :collection
+    get :quest5, on: :collection
+    get :quest6, on: :collection
+    get :quest7, on: :collection
+    get :quest8, on: :collection
+    get :quest9, on: :collection
+    get :quest10, on: :collection
+  end
   resources :shop_stores
   resources :store_assistants
   resources :users do
